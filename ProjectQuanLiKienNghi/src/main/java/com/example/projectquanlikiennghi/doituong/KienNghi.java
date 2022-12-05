@@ -1,4 +1,4 @@
-package com.example.projectquanlikiennghi;
+package com.example.projectquanlikiennghi.doituong;
 
 public class KienNghi {
     private String id;

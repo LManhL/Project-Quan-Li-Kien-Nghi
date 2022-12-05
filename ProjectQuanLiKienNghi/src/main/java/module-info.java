@@ -14,4 +14,6 @@ module com.example.projectquanlikiennghi {
     exports com.example.projectquanlikiennghi;
     exports com.example.projectquanlikiennghi.controller.controllerLogin;
     opens com.example.projectquanlikiennghi.controller.controllerLogin to javafx.fxml;
+    exports com.example.projectquanlikiennghi.doituong;
+    opens com.example.projectquanlikiennghi.doituong to javafx.fxml;
 }

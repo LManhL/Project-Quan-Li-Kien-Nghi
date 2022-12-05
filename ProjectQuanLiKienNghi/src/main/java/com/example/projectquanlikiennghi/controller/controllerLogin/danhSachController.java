@@ -1,6 +1,6 @@
 package com.example.projectquanlikiennghi.controller.controllerLogin;
 
-import com.example.projectquanlikiennghi.KienNghi;
+import com.example.projectquanlikiennghi.doituong.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -88,10 +88,14 @@ public class danhSachController implements Initializable {
                 row.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        if(event.getButton() == MouseButton.SECONDARY){
+                        if(event.getButton() == MouseButton.SECONDARY && !row.isEmpty()){
                             contextMenu.show(bang,event.getScreenX(),event.getScreenY());
                         }
+                        else {
+                            contextMenu.hide();
+                        }
                     }
+
                 });
                 return row;
             }
