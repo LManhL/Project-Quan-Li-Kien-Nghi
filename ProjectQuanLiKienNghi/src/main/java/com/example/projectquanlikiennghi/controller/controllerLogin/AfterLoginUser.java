@@ -3,7 +3,10 @@ package com.example.projectquanlikiennghi.controller.controllerLogin;
 import com.example.projectquanlikiennghi.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 
@@ -20,14 +23,18 @@ public class AfterLoginUser {
 
 
     @FXML
-    void userInformation(ActionEvent event) {
-        Parent p = new FXMLLoader().load(getClass().getResource("information_user.fxml"));
+    void userInformation(ActionEvent event) throws IOException {
+        Parent p = null;
+        p = new FXMLLoader().load(Main.class.getResource("information_user.fxml"));
+
         Bpane_phu.setCenter(p);
     }
 
     @FXML
-    void userList(ActionEvent event) {
-        Parent p = new FXMLLoader().load(getClass().getResource("danh_sach_ykien_user.fxml"));
+    void userList(ActionEvent event) throws IOException {
+        Parent p = null;
+        p = new FXMLLoader().load(Main.class.getResource("danh_sach_ykien_user.fxml"));
+
         Bpane_phu.setCenter(p);
     }
 
