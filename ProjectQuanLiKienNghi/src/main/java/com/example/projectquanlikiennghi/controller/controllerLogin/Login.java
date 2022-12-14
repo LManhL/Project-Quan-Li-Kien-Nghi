@@ -1,9 +1,10 @@
 package com.example.projectquanlikiennghi.controller.controllerLogin;
 
 import com.example.projectquanlikiennghi.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.event.ActionEvent;
+
 import java.io.IOException;
 
 public class Login {
@@ -40,16 +41,17 @@ public class Login {
     }
     public void getScreen(ActionEvent event){
         if(rdAdmin.isSelected()){
-            nextScene="afterLoginAdmin.fxml";
+            nextScene="AdminFXML/AdminHome.fxml";
         }
         else if(rdUser.isSelected()){
-            nextScene="afterLoginUser.fxml";
+            nextScene="UserFXML/UserHome.fxml";
         }
     }
     public void checkLoginSelected(String usernameText,String passwordText) throws IOException {
         Main m = new Main();
-        if(username.getText().toString().equals(usernameText) && password.getText().toString().equals(passwordText)) {
+        if(username.getText().equals(usernameText) && password.getText().equals(passwordText)) {
             wrongLogin.setText("Success!");
+
             m.changeScene(nextScene);
         }
         else if(username.getText().isEmpty() && password.getText().isEmpty()) {

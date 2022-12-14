@@ -14,7 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         globalState=stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginFXML/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Login");
         stage.setResizable(false);
@@ -27,9 +27,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-
         launch(args);
-        System.out.println("M10 World Cup 2022");
     }
 
 }

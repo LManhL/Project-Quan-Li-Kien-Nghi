@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerLogin.AfterLoginUser">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerUser.UserHomeController">
    <children>
       <Button fx:id="buttonLogout" layoutX="272.0" layoutY="127.0" mnemonicParsing="false" onAction="#userLogout" text="Log out" />
       <Label layoutX="215.0" layoutY="61.0" style="-fx-background-color: #6f38a6;" text="User Screen" textFill="#b23668">
