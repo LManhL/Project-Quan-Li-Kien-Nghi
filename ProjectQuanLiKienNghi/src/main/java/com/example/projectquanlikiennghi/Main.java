@@ -27,7 +27,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+
         launch(args);
+        System.out.println("M10 World Cup 2022");
     }
 
 }
