@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="410.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.DSKienNghi">
+   <children>
+      <Label layoutX="140.0" layoutY="14.0" text="Danh sách kiến nghị">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutY="52.0" prefHeight="360.0" prefWidth="530.0">
+        <columns>
+          <TableColumn fx:id="STT" prefWidth="33.0" text="STT" />
+          <TableColumn fx:id="Ma_kien_nghi" prefWidth="43.0" text="Mã KN" />
+            <TableColumn fx:id="Ngaygui" prefWidth="57.0" text="Ngày gửi" />
+            <TableColumn fx:id="Noidung" prefWidth="57.0" text="Nội dung" />
+            <TableColumn fx:id="Trangthai" prefWidth="66.0" text="Trạng thái" />
+            <TableColumn fx:id="Noidungphanhoi" prefWidth="124.0" text="Nội dung phản hồi" />
+            <TableColumn fx:id="Ngayphanhoi" prefWidth="97.0" text="Ngày phản hồi" />
+            <TableColumn fx:id="Loai" prefWidth="52.0" text="Loại" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
