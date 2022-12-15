@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerUser.DSKiennghiUserController">
+    <children>
+        <TableView fx:id="bang" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="400.0">
+            <columns>
+                <TableColumn fx:id="id_cot" prefWidth="88.0" text="STT" />
+                <TableColumn fx:id="ngaygui_cot" minWidth="0.0" prefWidth="131.199951171875" text="ngày" />
+                <TableColumn fx:id="trangthai_cot" prefWidth="176.00006103515625" text="trạng thái" />
+            </columns>
+        </TableView>
+        <Button layoutX="167.0" layoutY="344.0" mnemonicParsing="false" onAction="#click_them" text="thêm" />
+    </children>
+</Pane>

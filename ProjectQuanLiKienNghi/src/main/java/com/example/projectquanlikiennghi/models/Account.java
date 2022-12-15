@@ -39,6 +39,10 @@ public class Account {
         this.SoKN = 0;
     }
 
+    public Account() {
+
+    }
+
 
     public int getID() {
         return ID;

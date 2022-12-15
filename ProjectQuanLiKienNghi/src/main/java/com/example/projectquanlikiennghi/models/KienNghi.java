@@ -22,6 +22,12 @@ public class KienNghi {
         Loai = loai;
     }
 
+    public KienNghi(int stt, String ngaygui, int trangthai) {
+        this.STT=stt;
+        this.Trangthai=trangthai;
+        this.Ngaygui=ngaygui;
+    }
+
     public String getMa_kien_nghi() {
         return Ma_kien_nghi;
     }
