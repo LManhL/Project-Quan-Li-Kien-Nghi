@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="410.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.HomePage">
+   <children>
+      <Label alignment="CENTER" layoutX="93.0" layoutY="6.0" prefHeight="79.0" prefWidth="307.0" text="Quản lý kiến nghị" textAlignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="113.0" prefHeight="30.0" prefWidth="157.0" text="Tổng số user: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="158.0" prefHeight="30.0" prefWidth="190.0" text="Tổng số kiến nghị: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="205.0" prefHeight="30.0" prefWidth="280.0" text="Số kiến nghị chưa phê duyệt:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="93.0" layoutY="252.0" prefHeight="30.0" prefWidth="255.0" text="Số kiến nghị đã phê duyệt:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text fx:id="tongSoUser" layoutX="221.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="157.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="tongSoKN" layoutX="262.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="171.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="KNchuaPheDuyet" layoutX="359.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="148.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="KNdaPheDuyet" layoutX="335.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="148.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

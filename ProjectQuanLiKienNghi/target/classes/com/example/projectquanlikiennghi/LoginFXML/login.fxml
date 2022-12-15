@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="459.0" prefWidth="597.0" style="-fx-background-color: #5392c9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerLogin.Login">
+   <children>
+      <Label layoutX="145.0" layoutY="156.0" text="USERNAME" textFill="#2f2acd">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="144.0" layoutY="209.0" text="PASSWORD" textFill="#2f2acd">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" layoutX="242.0" layoutY="154.0" prefHeight="25.0" prefWidth="198.0" promptText="Username" />
+      <PasswordField fx:id="password" layoutX="242.0" layoutY="206.0" prefHeight="25.0" prefWidth="198.0" promptText="Password" />
+      <Button fx:id="buttonLogin" layoutX="256.0" layoutY="285.0" mnemonicParsing="false" onAction="#userLogIn" prefHeight="30.0" prefWidth="171.0" style="-fx-background-color: #604ae8;" text="Login">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="wrongLogin" layoutX="242.0" layoutY="122.0" text="login state " textFill="#eed114">
+         <font>
+            <Font name="Calibri Italic" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="119.0" fitWidth="129.0" layoutX="271.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../picture/login.png" />
+         </image>
+      </ImageView>
+      <RadioButton fx:id="rdAdmin" layoutX="243.0" layoutY="247.0" mnemonicParsing="false" onAction="#getScreen" text="Admin" textFill="#1a21da">
+         <toggleGroup>
+            <ToggleGroup fx:id="choiceScreen" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rdUser" layoutX="315.0" layoutY="247.0" mnemonicParsing="false" onAction="#getScreen" text="User" textFill="#1a21da" toggleGroup="$choiceScreen" />
+   </children>
+</AnchorPane>
