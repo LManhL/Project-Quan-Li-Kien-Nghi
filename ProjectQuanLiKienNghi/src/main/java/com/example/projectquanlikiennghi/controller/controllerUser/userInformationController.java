@@ -1,5 +1,6 @@
 package com.example.projectquanlikiennghi.controller.controllerUser;
 
+import com.example.projectquanlikiennghi.JdbcDAO;
 import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.models.Account;
 import javafx.event.ActionEvent;
@@ -10,9 +11,11 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class userInformationController implements Initializable {
+    public JdbcDAO repo=new JdbcDAO();
     @FXML
     private Label dia_chi_label;
 
@@ -37,18 +40,22 @@ public class userInformationController implements Initializable {
     @FXML
     void click_exit(ActionEvent event) throws IOException {
         Main m = new Main();
-        m.changeScene("afterLoginUser.fxml");
+        m.changeScene("LoginFXML/login.fxml");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Account account = new Account();
+        try {
+            account = repo.loadUserInformation(UserHomeController.username,UserHomeController.password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         ho_ten_label.setText(account.getHovaten());
         gioi_tinh_label.setText(account.getGioitinh());
         ma_cccd_label.setText(account.getCCCD());
         so_dt_label.setText(account.getSDT());
         ngay_sinh_label.setText(account.getNamsinh());
         dia_chi_label.setText(account.getDiachi());
-
     }
 }

@@ -1,11 +1,17 @@
 package com.example.projectquanlikiennghi.controller.controllerLogin;
 
+import com.example.projectquanlikiennghi.JdbcDAO;
 import com.example.projectquanlikiennghi.Main;
+import com.example.projectquanlikiennghi.controller.controllerUser.UserHomeController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Map;
 
 public class Login {
     @FXML
@@ -21,21 +27,22 @@ public class Login {
     @FXML
     private RadioButton rdUser;
 
+    private JdbcDAO repo = new JdbcDAO();
     private String nextScene="";
-    public void userLogIn(ActionEvent event) throws IOException {
+    public void userLogIn(ActionEvent event) throws IOException, SQLException {
         checkLogin();
     }
-    private void checkLogin() throws IOException {
+    private void checkLogin() throws IOException, SQLException {
 
         if(nextScene.equals("")){
             wrongLogin.setText("Please choose admin or user account");
         }
         else{
             if(rdAdmin.isSelected()){
-                checkLoginSelected("admin","admin");
+                checkLoginSelectedAdmin();
             }
             else if(rdUser.isSelected()){
-                checkLoginSelected("user","user");
+                checkLoginSelectedUser();
             }
         }
     }
@@ -47,18 +54,47 @@ public class Login {
             nextScene="UserFXML/UserHome.fxml";
         }
     }
-    public void checkLoginSelected(String usernameText,String passwordText) throws IOException {
-        Main m = new Main();
-        if(username.getText().equals(usernameText) && password.getText().equals(passwordText)) {
+    public void checkLoginSelectedUser() throws IOException, SQLException {
+
+        Main m =new Main();
+        if(username.getText().isEmpty() && password.getText().isEmpty()) {
+            wrongLogin.setText("Please enter your data.");
+            return;
+        }
+        Map<String,String> map=repo.checkloginUser();
+        if(map.containsKey(username.getText().toString())){
+            if(map.get(username.getText().toString()).equals(password.getText().toString())){
+                wrongLogin.setText("Success!");
+
+                FXMLLoader loader = new FXMLLoader(m.getClass().getResource(nextScene));
+                Parent parent = loader.load();
+
+                UserHomeController userHomeController=loader.getController();
+                userHomeController.setInitialValue(username.getText().toString(),password.getText().toString());
+
+                m.changeScene(nextScene);
+            }
+            else{
+                wrongLogin.setText("Wrong username or password");
+            }
+        }
+        else{
+            wrongLogin.setText("Wrong username or password");
+        }
+    }
+    public void checkLoginSelectedAdmin() throws IOException {
+        Main m =new Main();
+        if(username.getText().isEmpty() && password.getText().isEmpty()) {
+            wrongLogin.setText("Please enter your data.");
+            return;
+        }
+        if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
             wrongLogin.setText("Success!");
 
             m.changeScene(nextScene);
         }
-        else if(username.getText().isEmpty() && password.getText().isEmpty()) {
-            wrongLogin.setText("Please enter your data.");
-        }
-        else {
-            wrongLogin.setText("Wrong username or password!");
+        else{
+            wrongLogin.setText("Wrong username or password");
         }
     }
 

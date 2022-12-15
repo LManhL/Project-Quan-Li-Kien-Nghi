@@ -22,12 +22,19 @@ public class UserHomeController {
     private Button buttonLogout;
     @FXML
     private BorderPane Bpane_phu;
+    public static String username;
+    public static String password;
 
     public void userLogout(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("LoginFXML/login.fxml");
     }
 
+    public void setInitialValue(String username,String password){
+        this.username=username;
+        this.password=password;
+        System.out.println(username+password);
+    }
 
     @FXML
     void userInformation(ActionEvent event) throws IOException {

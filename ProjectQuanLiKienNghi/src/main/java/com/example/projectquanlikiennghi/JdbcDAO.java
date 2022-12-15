@@ -7,6 +7,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 // load database
 public class JdbcDAO {
@@ -25,6 +28,8 @@ public class JdbcDAO {
     private static final String COUNT_KN = "SELECT count(Ma_kien_nghi) FROM kiennghi";
     private static final String COUNT_KN_CHUAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai = 0";
     private static final String COUNT_KN_DAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai =1";
+
+    private static final String CHECK_LOGIN_USER="SELECT username,password from account";
 
 
     public static Connection ConnectDB() throws SQLException {
@@ -176,5 +181,27 @@ public class JdbcDAO {
                      " WHERE (Ma_kien_nghi = '"+ maKn +"')"  ;
 
         st.executeUpdate(sql);
+    }
+    public Map<String,String> checkloginUser() throws  SQLException {
+        Map<String,String> map = new HashMap<>();
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(CHECK_LOGIN_USER);
+
+        while (result.next()) {
+            map.put(result.getObject(1).toString(),result.getObject(2).toString());
+        }
+        return map;
+    }
+    public Account loadUserInformation(String username,String password) throws SQLException {
+        String query = "SELECT * from account WHERE username= "+"'"+username+"'"+" AND "+ "password="+"'"+password+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        result.next();
+        Account account=new Account(result.getObject(1).toString(),result.getObject(2).toString(),
+                                    result.getObject(3).toString(),result.getObject(4).toString(),
+                                    result.getObject(5).toString(),result.getObject(6).toString(),
+                                    result.getObject(7).toString(),result.getObject(8).toString(),
+                                    result.getObject(9).toString());
+        return account;
     }
 }
