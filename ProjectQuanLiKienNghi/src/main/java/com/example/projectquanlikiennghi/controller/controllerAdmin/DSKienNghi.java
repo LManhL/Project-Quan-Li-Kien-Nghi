@@ -23,35 +23,35 @@ public class DSKienNghi  implements Initializable {
     private TableView<KienNghi> table = new TableView<KienNghi>();
 
     @FXML
-    private TableColumn<Account, Integer> STT = new TableColumn<Account, Integer>();
+    private TableColumn<KienNghi, Integer> STT = new TableColumn<>();
     @FXML
-    private TableColumn<Account, String> Ma_kien_nghi = new TableColumn<Account, String>();
+    private TableColumn<KienNghi, String> Ma_kien_nghi = new TableColumn<>();
     @FXML
-    private TableColumn<Account, String> Ngaygui = new TableColumn<>();
+    private TableColumn<KienNghi, String> Ngaygui = new TableColumn<>();
     @FXML
-    private TableColumn<Account, String> Noidung = new TableColumn<Account, String>();
+    private TableColumn<KienNghi, String> Noidung = new TableColumn<>();
     @FXML
-    private TableColumn<Account, Integer> Trangthai = new TableColumn<>();
+    private TableColumn<KienNghi, Integer> Trangthai = new TableColumn<>();
     @FXML
-    private TableColumn<Account, String> Noidungphanhoi = new TableColumn<>();
+    private TableColumn<KienNghi, String> Noidungphanhoi = new TableColumn<>();
     @FXML
-    private TableColumn<Account, String> Ngayphanhoi = new TableColumn<Account, String>();
+    private TableColumn<KienNghi, String> Ngayphanhoi = new TableColumn<>();
     @FXML
-    private TableColumn<Account, String> Loai = new TableColumn<Account, String>();
+    private TableColumn<KienNghi, String> Loai = new TableColumn<>();
 
     JdbcDAO repo = new JdbcDAO();
 
     ObservableList<KienNghi> listKN = FXCollections.observableArrayList();
 
    public void loadKN() throws SQLException {
-       STT.setCellValueFactory( new PropertyValueFactory<Account, Integer>("STT"));
-       Ma_kien_nghi.setCellValueFactory( new PropertyValueFactory<Account, String>("Ma_kien_nghi"));
-       Ngaygui.setCellValueFactory( new PropertyValueFactory<Account, String>("Ngaygui"));
-       Noidung.setCellValueFactory( new PropertyValueFactory<Account, String>("Noidung"));
-       Trangthai.setCellValueFactory( new PropertyValueFactory<Account, Integer>("Trangthai"));
-       Noidungphanhoi.setCellValueFactory( new PropertyValueFactory<Account, String>("Noidungphanhoi"));
-       Ngayphanhoi.setCellValueFactory( new PropertyValueFactory<Account, String>("Ngayphanhoi"));
-       Loai.setCellValueFactory( new PropertyValueFactory<Account, String>("Loai"));
+       STT.setCellValueFactory( new PropertyValueFactory<KienNghi, Integer>("STT"));
+       Ma_kien_nghi.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Ma_kien_nghi"));
+       Ngaygui.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Ngaygui"));
+       Noidung.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Noidung"));
+       Trangthai.setCellValueFactory( new PropertyValueFactory<KienNghi, Integer>("Trangthai"));
+       Noidungphanhoi.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Noidungphanhoi"));
+       Ngayphanhoi.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Ngayphanhoi"));
+       Loai.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Loai"));
 
        listKN = repo.listKN();
        table.setItems(listKN);

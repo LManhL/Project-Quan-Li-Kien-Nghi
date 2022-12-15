@@ -18,10 +18,10 @@ public class HomePage {
     @FXML
     private Text KNdaPheDuyet;
 
-    private int tongUser = 10;
-    private int tongKN = 2408;
-    private int KNchuaPD = 7567;
-    private int KNdaPD = 45435;
+    private int tongUser ;
+    private int tongKN ;
+    private int KNchuaPD;
+    private int KNdaPD ;
 
     JdbcDAO repo = new JdbcDAO();
 
@@ -32,6 +32,13 @@ public class HomePage {
 //        this.KNchuaPheDuyet.setText(String.valueOf(KNchuaPD));
 //        this.KNdaPheDuyet.setText(String.valueOf(KNdaPD));
 //    }
+
+    public HomePage() {
+        this.tongUser = 0;
+        this.tongKN = 0;
+        this.KNchuaPD = 0;
+        this.KNdaPD = 0;
+    }
 
     // load co so du lieu de thong ke
     public void loadStatistic() throws SQLException {

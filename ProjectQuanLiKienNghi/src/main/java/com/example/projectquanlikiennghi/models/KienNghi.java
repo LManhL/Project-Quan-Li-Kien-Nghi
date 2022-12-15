@@ -10,9 +10,9 @@ public class KienNghi {
     private String Ngayphanhoi;
     private String Loai;
 
-    public KienNghi(String ma_kien_nghi, String ngaygui, String noidung, int trangthai,
+    public KienNghi(int stt,String ma_kien_nghi, String ngaygui, String noidung, int trangthai,
                       String noidungphanhoi, String ngayphanhoi, String loai) {
-        STT = 1;
+        STT=stt;
         Ma_kien_nghi = ma_kien_nghi;
         Ngaygui = ngaygui;
         Noidung = noidung;
@@ -20,6 +20,12 @@ public class KienNghi {
         Noidungphanhoi = noidungphanhoi;
         Ngayphanhoi = ngayphanhoi;
         Loai = loai;
+    }
+
+    public KienNghi(int stt, String ngaygui, int trangthai) {
+        this.STT=stt;
+        this.Trangthai=trangthai;
+        this.Ngaygui=ngaygui;
     }
 
     public String getMa_kien_nghi() {
@@ -76,5 +82,13 @@ public class KienNghi {
 
     public void setLoai(String loai) {
         Loai = loai;
+    }
+
+    public int getSTT() {
+        return STT;
+    }
+
+    public void setSTT(int STT) {
+        this.STT = STT;
     }
 }

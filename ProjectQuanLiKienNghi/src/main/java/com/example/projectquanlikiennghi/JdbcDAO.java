@@ -7,12 +7,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 // load database
 public class JdbcDAO {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/quanlykiennghi";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/databaseproject";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "admin123";
+    private static final String DATABASE_PASSWORD = "123456";
 
 
     private static final String LOAD_USER = "SELECT * FROM account";
@@ -21,10 +24,12 @@ public class JdbcDAO {
     private static final String LOAD_KN_DAPD = "SELECT * FROM kiennghi WHERE Trangthai = 1";
 
 
-    private static final String COUNT_USER = "SELECT count(ID) FROM account;";
+    private static final String COUNT_USER = "SELECT count(CCCD) FROM account;";
     private static final String COUNT_KN = "SELECT count(Ma_kien_nghi) FROM kiennghi";
     private static final String COUNT_KN_CHUAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai = 0";
     private static final String COUNT_KN_DAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai =1";
+
+    private static final String CHECK_LOGIN_USER="SELECT username,password from account";
 
 
     public static Connection ConnectDB() throws SQLException {
@@ -78,11 +83,10 @@ public class JdbcDAO {
 
         ResultSet result = connection.createStatement().executeQuery(LOAD_USER);
         while (result.next()) {
-            list.add(new Account(result.getInt(1), result.getObject(2).toString(),
-                    result.getObject(3).toString(), result.getObject(4).toString(),
-                    result.getObject(5).toString(), result.getObject(6).toString(),
-                    result.getObject(7).toString(), result.getObject(8).toString()));
-
+            list.add(new Account(list.size()+1, result.getObject(1).toString(),
+                    result.getObject(2).toString(), result.getObject(3).toString(),
+                    result.getObject(4).toString(), result.getObject(5).toString(),
+                    result.getObject(6).toString(), result.getObject(7).toString(),0));
         }
         connection.close();
         return list;
@@ -95,7 +99,7 @@ public class JdbcDAO {
 
         ResultSet result = connection.createStatement().executeQuery(LOAD_KN);
         while (result.next()) {
-            list.add(new KienNghi(String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
+            list.add(new KienNghi(list.size()+1,String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
                     String.valueOf(result.getObject(3)), result.getInt(4),
                     String.valueOf(result.getObject(5)), String.valueOf(result.getObject(6)),
                     String.valueOf(result.getObject(7))));
@@ -111,7 +115,7 @@ public class JdbcDAO {
 
         ResultSet result = connection.createStatement().executeQuery(LOAD_KN_CHUAPD);
         while (result.next()) {
-            list.add(new KienNghi(String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
+            list.add(new KienNghi(list.size()+1,String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
                     String.valueOf(result.getObject(3)), result.getInt(4),
                     String.valueOf(result.getObject(5)), String.valueOf(result.getObject(6)),
                     String.valueOf(result.getObject(7))));
@@ -127,7 +131,7 @@ public class JdbcDAO {
 
         ResultSet result = connection.createStatement().executeQuery(LOAD_KN_DAPD);
         while (result.next()) {
-            list.add(new KienNghi(String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
+            list.add(new KienNghi(list.size()+1,String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
                     String.valueOf(result.getObject(3)), result.getInt(4),
                     String.valueOf(result.getObject(5)), String.valueOf(result.getObject(6)),
                     String.valueOf(result.getObject(7))));
@@ -177,5 +181,27 @@ public class JdbcDAO {
                      " WHERE (Ma_kien_nghi = '"+ maKn +"')"  ;
 
         st.executeUpdate(sql);
+    }
+    public Map<String,String> checkloginUser() throws  SQLException {
+        Map<String,String> map = new HashMap<>();
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(CHECK_LOGIN_USER);
+
+        while (result.next()) {
+            map.put(result.getObject(1).toString(),result.getObject(2).toString());
+        }
+        return map;
+    }
+    public Account loadUserInformation(String username,String password) throws SQLException {
+        String query = "SELECT * from account WHERE username= "+"'"+username+"'"+" AND "+ "password="+"'"+password+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        result.next();
+        Account account=new Account(result.getObject(1).toString(),result.getObject(2).toString(),
+                                    result.getObject(3).toString(),result.getObject(4).toString(),
+                                    result.getObject(5).toString(),result.getObject(6).toString(),
+                                    result.getObject(7).toString(),result.getObject(8).toString(),
+                                    result.getObject(9).toString());
+        return account;
     }
 }

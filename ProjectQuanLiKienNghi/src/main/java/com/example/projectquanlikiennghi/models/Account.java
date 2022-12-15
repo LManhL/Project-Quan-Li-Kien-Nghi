@@ -14,7 +14,7 @@ public class Account {
     private int SoKN;
 
     public Account(int ID, String hovaten, String SDT, String diachi, String gioitinh,
-                   String namsinh, String CCCD, String username) {
+                   String namsinh, String CCCD, String username,int sokn) {
         this.ID = ID;
         this.Hovaten = hovaten;
         this.SDT = SDT;
@@ -23,7 +23,7 @@ public class Account {
         this.Namsinh = namsinh;
         this.CCCD = CCCD;
         this.Username = username;
-        this.SoKN = 0;
+        this.SoKN = sokn;
     }
     public Account(String hovaten, String SDT, String diachi, String gioitinh,
                    String namsinh, String CCCD, String username, String password, String role) {
@@ -37,6 +37,10 @@ public class Account {
         this.Password = password;
         this.role = role;
         this.SoKN = 0;
+    }
+
+    public Account() {
+
     }
 
 
@@ -102,5 +106,13 @@ public class Account {
 
     public void setUsername(String username) {
         Username = username;
+    }
+
+    public int getSoKN() {
+        return SoKN;
+    }
+
+    public void setSoKN(int soKN) {
+        SoKN = soKN;
     }
 }
