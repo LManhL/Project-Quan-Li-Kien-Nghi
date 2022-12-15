@@ -15,7 +15,7 @@ import java.util.Map;
 public class JdbcDAO {
     private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/databaseproject";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "ad9vl30860";
+    private static final String DATABASE_PASSWORD = "123456";
 
 
     private static final String LOAD_USER = "SELECT * FROM account";
