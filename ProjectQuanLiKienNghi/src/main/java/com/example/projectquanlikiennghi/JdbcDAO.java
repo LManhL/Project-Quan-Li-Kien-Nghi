@@ -155,9 +155,12 @@ public class JdbcDAO {
         String username = acc.getUsername();
         String password = "123456";
         String role = "user";
-        st.executeUpdate("INSERT INTO account VALUES OF (" +1 +","+ hoten+ ","+ sdt +","+ diachi+","
-                                                           + gioitinh +"," + namsinh + ","+ cccd +","
-                                                           +username+ ","+ password +","+role + ")");
+        String sql="INSERT INTO account VALUES ("+"'"+hoten+"','"+sdt +"','"+ diachi+"','"
+                + gioitinh +"','" + namsinh + "','"+ cccd +"','"
+                +username+ "','"+ password +"','"+role + "')";
+        System.out.println(sql);
+        st.executeUpdate(sql);
+
         connection.close();
     }
     // thay doi trang thai kien nghi
@@ -176,9 +179,10 @@ public class JdbcDAO {
         Connection connection = ConnectDB();
         Statement st = connection.createStatement();
 
-        String sql = "UPDATE kiennghi SET Ngayphanhoi = " + ngayphanhoi +
-                     " , Noidungphanhoi = " + NDPH +
+        String sql = "UPDATE kiennghi SET Ngayphanhoi = " + "'"+ngayphanhoi+"'" +
+                     " , Noidungphanhoi = " + "'"+NDPH+"'"+
                      " WHERE (Ma_kien_nghi = '"+ maKn +"')"  ;
+        System.out.println(sql);
 
         st.executeUpdate(sql);
     }
