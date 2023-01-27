@@ -21,7 +21,9 @@ public class UserHomeController {
     @FXML
     private Button buttonLogout;
     @FXML
-    private BorderPane Bpane_phu;
+    public static BorderPane Bpane_phu;
+
+    public  static  BorderPane global_phu;
     public static String username;
     public static String password;
 
@@ -31,25 +33,28 @@ public class UserHomeController {
     }
 
     public void setInitialValue(String username,String password){
+//        global_phu = Bpane_phu;
         this.username=username;
         this.password=password;
         System.out.println(username+password);
     }
+    public static void change_Bphu(String str) throws IOException {
+        Parent p = new FXMLLoader().load(Main.class.getResource(str));
+
+        Bpane_phu.setCenter(p);
+//        global_phu.setCenter(p);
+    }
 
     @FXML
     void userInformation(ActionEvent event) throws IOException {
-        Parent p = null;
-        p = new FXMLLoader().load(Main.class.getResource("UserFXML/userInformation.fxml"));
 
-        Bpane_phu.setCenter(p);
+        change_Bphu("UserFXML/userInformation.fxml");
     }
 
     @FXML
     void userList(ActionEvent event) throws IOException {
-        Parent p = null;
-        p = new FXMLLoader().load(Main.class.getResource("UserFXML/DSKiennghiUser.fxml"));
 
-        Bpane_phu.setCenter(p);
+        change_Bphu("UserFXML/DSKiennghiUser.fxml");
     }
 
 }

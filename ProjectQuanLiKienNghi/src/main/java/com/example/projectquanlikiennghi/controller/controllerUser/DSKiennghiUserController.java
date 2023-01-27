@@ -1,22 +1,30 @@
 package com.example.projectquanlikiennghi.controller.controllerUser;
 
+import com.example.projectquanlikiennghi.JdbcDAO;
+import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DSKiennghiUserController implements Initializable {
+    //khai bao 2 bien de lay thong tin, 2 thong tin duoc lay tu userhomcontroller
+
     @FXML
     private TableView<KienNghi> bang;
 
@@ -42,9 +50,8 @@ public class DSKiennghiUserController implements Initializable {
     private MenuItem    mi_sua;
     private MenuItem    mi_xoa;
 
-    ObservableList<KienNghi> ds_kien_nghi = FXCollections.observableArrayList(
-            new KienNghi(1,"2022",1)
-    );
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -53,7 +60,15 @@ public class DSKiennghiUserController implements Initializable {
         ngaygui_cot.setCellValueFactory(new PropertyValueFactory<KienNghi,String>("Ngaygui"));
         trangthai_cot.setCellValueFactory(new PropertyValueFactory<KienNghi,Integer>("Trangthai"));
 
-        bang.setItems(ds_kien_nghi);
+        //lay kien nghi cua 1 ca nhan
+        JdbcDAO repo = new JdbcDAO();
+        ObservableList<KienNghi> listofuser = FXCollections.observableArrayList();
+        try {
+            listofuser = repo.getKienNghiuser(UserHomeController.username,UserHomeController.password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        bang.setItems(listofuser);
 
         //gan su kien cho menuitem cua contextMenu
         contextMenu = new ContextMenu();
@@ -61,6 +76,15 @@ public class DSKiennghiUserController implements Initializable {
         mi_xem.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                System.out.println("thuc hien xem");
+                KienNghi kn= bang.getSelectionModel().getSelectedItem();
+                System.out.println(UserHomeController.password);
+                UserHomeController uhc = new UserHomeController();
+                try {
+                    uhc.change_Bphu("UserFXML/xemkn.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 
             }
         });
@@ -71,6 +95,8 @@ public class DSKiennghiUserController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
 
+                KienNghi kn= bang.getSelectionModel().getSelectedItem();
+
             }
         });
         contextMenu.getItems().add(mi_sua);
@@ -79,6 +105,7 @@ public class DSKiennghiUserController implements Initializable {
         mi_xoa.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                KienNghi kn= bang.getSelectionModel().getSelectedItem();
 
             }
         });
