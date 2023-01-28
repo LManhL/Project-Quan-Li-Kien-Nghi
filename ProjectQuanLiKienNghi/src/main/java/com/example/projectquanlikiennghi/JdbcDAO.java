@@ -237,9 +237,13 @@ public class  JdbcDAO {
     }
 
     public void delete_kn(String str) throws SQLException {
-        String query ="delete from kiennghi where Ma_kien_nghi='"+str+"'";
+        String queryDelKienNghi ="delete from kiennghi where Ma_kien_nghi='"+str+"'";
+        String queryDelAccKienNghi="delete from acc_kiennghi where Ma_kien_nghi='"+str+"'";
         Connection connection = ConnectDB();
-        ResultSet result = connection.createStatement().executeQuery(query);
+        Statement st = connection.createStatement();
+        System.out.println(queryDelKienNghi);
+        st.executeUpdate(queryDelAccKienNghi);
+        st.executeUpdate(queryDelKienNghi);
     }
 
     public  void add_kn_of_user(String name, String pass,String mkn, String ng,String nd,String loai) throws SQLException {
