@@ -79,10 +79,15 @@ public class DSKiennghiUserController implements Initializable {
             public void handle(ActionEvent event) {
                 System.out.println("thuc hien xem");
                 KienNghi kn= bang.getSelectionModel().getSelectedItem();
-                System.out.println(UserHomeController.password);
                 UserHomeController uhc = new UserHomeController();
                 try {
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("UserFXML/xemkn.fxml"));
+                    loader.load();
+                    xemknController xc = loader.getController();
+                    xc.set_inf(kn.getLoai(), kn.getMa_kien_nghi(),kn.getNoidung(),kn.getNoidungphanhoi(),
+                            kn.getNgaygui(),kn.getNgayphanhoi(),String.valueOf(kn.getSTT()),String.valueOf(kn.getTrangthai()));
                     uhc.change_Bphu("UserFXML/xemkn.fxml");
+
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

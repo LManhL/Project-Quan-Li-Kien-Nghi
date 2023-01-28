@@ -42,7 +42,7 @@ public class UserHomeController implements Initializable {
         System.out.println(username+password);
     }
     public void change_Bphu(String str) throws IOException {
-        System.out.println(Bpane_phu);
+        System.out.println(global_phu);
         Parent p = new FXMLLoader().load(Main.class.getResource(str));
 
 //        Bpane_phu.setCenter(p);
