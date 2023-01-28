@@ -37,7 +37,7 @@
       </Label>
       <ImageView fitHeight="119.0" fitWidth="129.0" layoutX="271.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../picture/login.png" />
+            <Image url="@../../../../picture/login.png" />
          </image>
       </ImageView>
       <RadioButton fx:id="rdAdmin" layoutX="243.0" layoutY="247.0" mnemonicParsing="false" onAction="#getScreen" text="Admin" textFill="#1a21da">
