@@ -43,12 +43,16 @@ public class DSKiennghiUserController implements Initializable {
 
     @FXML
     void click_them(ActionEvent event) {
-
+        UserHomeController uhc = new UserHomeController();
+        try {
+            uhc.change_Bphu("UserFXML/themkn.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     // tao thong tin khi click chuot phai
     private ContextMenu contextMenu;
     private MenuItem    mi_xem;
-    private MenuItem    mi_sua;
     private MenuItem    mi_xoa;
 
 
@@ -82,12 +86,11 @@ public class DSKiennghiUserController implements Initializable {
                 UserHomeController uhc = new UserHomeController();
                 try {
                     FXMLLoader loader = new FXMLLoader(Main.class.getResource("UserFXML/xemkn.fxml"));
-                    loader.load();
+                    Parent p=loader.load();
                     xemknController xc = loader.getController();
                     xc.set_inf(kn.getLoai(), kn.getMa_kien_nghi(),kn.getNoidung(),kn.getNoidungphanhoi(),
                             kn.getNgaygui(),kn.getNgayphanhoi(),String.valueOf(kn.getSTT()),String.valueOf(kn.getTrangthai()));
-                    uhc.change_Bphu("UserFXML/xemkn.fxml");
-
+                    UserHomeController.global_phu.setCenter(p);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -96,22 +99,21 @@ public class DSKiennghiUserController implements Initializable {
         });
         contextMenu.getItems().add(mi_xem);
 
-        mi_sua = new MenuItem("Sua");
-        mi_sua.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
 
-                KienNghi kn= bang.getSelectionModel().getSelectedItem();
-
-            }
-        });
-        contextMenu.getItems().add(mi_sua);
 
         mi_xoa = new MenuItem("Xoa");
+        ObservableList<KienNghi> finalListofuser = listofuser;
         mi_xoa.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                KienNghi kn= bang.getSelectionModel().getSelectedItem();
+                KienNghi kn = bang.getSelectionModel().getSelectedItem();
+                finalListofuser.remove(kn);
+                bang.setItems(finalListofuser);
+                try {
+                    repo.delete_kn(kn.getMa_kien_nghi());
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
 
             }
         });

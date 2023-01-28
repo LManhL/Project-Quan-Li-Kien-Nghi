@@ -235,4 +235,23 @@ public class  JdbcDAO {
         }
         return list;
     }
+
+    public void delete_kn(String str) throws SQLException {
+        String query ="delete from kiennghi where Ma_kien_nghi='"+str+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+    }
+
+    public  void add_kn_of_user(String name, String pass,String mkn, String ng,String nd,String loai) throws SQLException {
+        Account acc = loadUserInformation(name,pass);
+        String add_acc_kn ="insert into acc_kiennghi\n" +
+                "values ('"+acc.getCCCD()+"','"+mkn+"')";
+        String add_kn ="insert into kiennghi\n" +
+                "values ('"+mkn+"','"+ng+"','"+nd+"','0','','','"+loai+"')";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(add_acc_kn);
+        ResultSet result1 = connection.createStatement().executeQuery(add_kn);
+
+    }
+
 }
