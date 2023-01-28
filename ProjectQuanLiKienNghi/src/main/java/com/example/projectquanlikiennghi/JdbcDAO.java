@@ -14,9 +14,9 @@ import java.util.Map;
 
 // load database
 public class  JdbcDAO {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/btl_cnpm";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/testcnpm";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "Vykroos280502.";
+    private static final String DATABASE_PASSWORD = "ad9vl30860";
 
 
     private static final String LOAD_USER = "SELECT * FROM account";
@@ -244,14 +244,17 @@ public class  JdbcDAO {
 
     public  void add_kn_of_user(String name, String pass,String mkn, String ng,String nd,String loai) throws SQLException {
         Account acc = loadUserInformation(name,pass);
-        String add_acc_kn ="insert into acc_kiennghi\n" +
+        String add_acc_kn ="insert into acc_kiennghi " +
                 "values ('"+acc.getCCCD()+"','"+mkn+"')";
-        String add_kn ="insert into kiennghi\n" +
-                "values ('"+mkn+"','"+ng+"','"+nd+"','0','','','"+loai+"')";
+        String add_kn ="insert into kiennghi " +
+                "values ('"+mkn+"','"+ng+"','"+nd+"','"+0+"','"+""+"',"+"NULL"+",'"+loai+"')";
         Connection connection = ConnectDB();
-        ResultSet result = connection.createStatement().executeQuery(add_acc_kn);
-        ResultSet result1 = connection.createStatement().executeQuery(add_kn);
+        Statement st = connection.createStatement();
+        System.out.println(add_kn);
+        st.executeUpdate(add_kn);
+        st.executeUpdate(add_acc_kn);
 
+        connection.close();
     }
 
 }
