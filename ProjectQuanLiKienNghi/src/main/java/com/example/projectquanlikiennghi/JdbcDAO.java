@@ -260,5 +260,30 @@ public class  JdbcDAO {
 
         connection.close();
     }
+    public void changePassword(String username, String newPassword) throws SQLException {
+        Connection connection = ConnectDB();
+        Statement st = connection.createStatement();
 
+        String sql = "UPDATE account SET password = " + "'"+newPassword +"'"+ " WHERE username = '"+ username +"'"  ;
+        st.executeUpdate(sql);
+    }
+    public Account getUserInformationForChange(String username) throws SQLException {
+        String query = "SELECT * from account WHERE username= "+"'"+username+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        result.next();
+        Account account=new Account(result.getObject(1).toString(),result.getObject(2).toString(),
+                result.getObject(3).toString(),result.getObject(4).toString(),
+                result.getObject(5).toString(),result.getObject(6).toString(),
+                result.getObject(7).toString(),result.getObject(8).toString(),
+                result.getObject(9).toString());
+        return account;
+    }
+    public void changeUserInformationForUser(String username,String Address,String SDT) throws SQLException {
+        Connection connection = ConnectDB();
+        Statement st = connection.createStatement();
+
+        String sql = "UPDATE account SET Diachi = " + "'"+Address +"'"+" , "+"SDT = "+"'"+SDT +"'"+" WHERE username = '"+ username +"'"  ;
+        st.executeUpdate(sql);
+    }
 }

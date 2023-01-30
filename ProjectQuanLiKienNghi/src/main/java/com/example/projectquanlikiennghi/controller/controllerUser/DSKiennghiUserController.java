@@ -15,12 +15,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class DSKiennghiUserController implements Initializable {
@@ -36,7 +36,7 @@ public class DSKiennghiUserController implements Initializable {
     private TableColumn<KienNghi, String> ngaygui_cot;
 
     @FXML
-    private TableColumn<KienNghi, Integer> trangthai_cot;
+    private TableColumn<KienNghi, String> trangthai_cot;
 
     public DSKiennghiUserController() {
     }
@@ -45,7 +45,7 @@ public class DSKiennghiUserController implements Initializable {
     void click_them(ActionEvent event) {
         UserHomeController uhc = new UserHomeController();
         try {
-            uhc.change_Bphu("UserFXML/themkn.fxml");
+            uhc.change_Bphu("UserFXML/addKienNghi.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -63,7 +63,7 @@ public class DSKiennghiUserController implements Initializable {
 
         id_cot.setCellValueFactory(new PropertyValueFactory<KienNghi,Integer>("STT"));
         ngaygui_cot.setCellValueFactory(new PropertyValueFactory<KienNghi,String>("Ngaygui"));
-        trangthai_cot.setCellValueFactory(new PropertyValueFactory<KienNghi,Integer>("Trangthai"));
+        trangthai_cot.setCellValueFactory(new PropertyValueFactory<KienNghi,String>("Loai"));
 
         //lay kien nghi cua 1 ca nhan
         JdbcDAO repo = new JdbcDAO();
@@ -73,6 +73,23 @@ public class DSKiennghiUserController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        for(KienNghi kienNghi: listofuser){
+            int trangThai = kienNghi.getTrangthai();
+            if(trangThai==0){
+                kienNghi.setLoai("Chưa phê duyệt");
+            }
+            else if(trangThai==1){
+                kienNghi.setLoai("Từ chối phê duyệt");
+            }
+            else if(trangThai==2){
+                kienNghi.setLoai("Đã phê duyệt chưa có phản hồi");
+            }
+            else if(trangThai==3){
+                kienNghi.setLoai("Đã phản hồi");
+            }
+            else;
+        }
+
         bang.setItems(listofuser);
 
         //gan su kien cho menuitem cua contextMenu
@@ -85,9 +102,9 @@ public class DSKiennghiUserController implements Initializable {
                 KienNghi kn= bang.getSelectionModel().getSelectedItem();
                 UserHomeController uhc = new UserHomeController();
                 try {
-                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("UserFXML/xemkn.fxml"));
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("UserFXML/showKienNghi.fxml"));
                     Parent p=loader.load();
-                    xemknController xc = loader.getController();
+                    XemKienNghiUserController xc = loader.getController();
                     xc.set_inf(kn.getLoai(), kn.getMa_kien_nghi(),kn.getNoidung(),kn.getNoidungphanhoi(),
                             kn.getNgaygui(),kn.getNgayphanhoi(),String.valueOf(kn.getSTT()),String.valueOf(kn.getTrangthai()));
                     UserHomeController.global_phu.setCenter(p);
@@ -101,16 +118,31 @@ public class DSKiennghiUserController implements Initializable {
 
 
 
-        mi_xoa = new MenuItem("Xoa");
+        mi_xoa = new MenuItem("Xóa");
         ObservableList<KienNghi> finalListofuser = listofuser;
         mi_xoa.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 KienNghi kn = bang.getSelectionModel().getSelectedItem();
-                finalListofuser.remove(kn);
-                bang.setItems(finalListofuser);
                 try {
-                    repo.delete_kn(kn.getMa_kien_nghi());
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Xác nhận xóa");
+                    alert.setContentText("Bạn đã chắc chắn muốn xóa chứ?");
+
+                    ButtonType buttonTypeYes = new ButtonType("Xác nhận", ButtonBar.ButtonData.YES);
+                    ButtonType buttonTypeNo = new ButtonType("Hủy", ButtonBar.ButtonData.NO);
+                    alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+                    Optional<ButtonType> result = alert.showAndWait();
+
+                    if (result.get() == buttonTypeYes){
+                        repo.delete_kn(kn.getMa_kien_nghi());
+                        finalListofuser.remove(kn);
+                        bang.setItems(finalListofuser);
+                    }
+                    else{
+                        // do nothing
+                    }
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }

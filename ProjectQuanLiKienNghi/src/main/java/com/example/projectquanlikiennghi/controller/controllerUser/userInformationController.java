@@ -5,7 +5,9 @@ import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.models.Account;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -18,9 +20,6 @@ public class userInformationController implements Initializable {
     public JdbcDAO repo=new JdbcDAO();
     @FXML
     private Label dia_chi_label;
-
-    @FXML
-    private Button exit_thongtin;
 
     @FXML
     private Label gioi_tinh_label;
@@ -38,11 +37,18 @@ public class userInformationController implements Initializable {
     private Label so_dt_label;
 
     @FXML
-    void click_exit(ActionEvent event) throws IOException {
-        Main m = new Main();
-        m.changeScene("LoginFXML/login.fxml");
+    void changePassword(ActionEvent event) throws IOException {
+        UserHomeController uhc = new UserHomeController();
+        uhc.change_Bphu("UserFXML/changePassword.fxml");
     }
-
+    @FXML
+    void changeUserInformation(ActionEvent event) throws IOException, SQLException {
+        FXMLLoader loader=new FXMLLoader(Main.class.getResource("UserFXML/changeUserInformation.fxml"));
+        Parent root=loader.load();
+        changeUserInformationController controller=loader.getController();
+        controller.initialValue();
+        UserHomeController.global_phu.setCenter(root);
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Account account = new Account();

@@ -33,6 +33,8 @@ public class UserHomeController implements Initializable {
     public void userLogout(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("LoginFXML/login.fxml");
+        Main.globalState.setWidth(597);
+        Main.globalState.setHeight(459);
     }
 
     // set ten va matkhau cho lop , tu do cos the query
@@ -42,7 +44,6 @@ public class UserHomeController implements Initializable {
         System.out.println(username+password);
     }
     public void change_Bphu(String str) throws IOException {
-        System.out.println(global_phu);
         Parent p = new FXMLLoader().load(Main.class.getResource(str));
 
 //        Bpane_phu.setCenter(p);

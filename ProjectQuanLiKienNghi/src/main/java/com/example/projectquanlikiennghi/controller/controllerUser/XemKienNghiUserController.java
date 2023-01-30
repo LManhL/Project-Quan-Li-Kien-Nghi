@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class xemknController implements Initializable {
+public class XemKienNghiUserController implements Initializable {
     @FXML
     private Button back_button;
 
@@ -51,8 +51,21 @@ public class xemknController implements Initializable {
         ng_label.setText(s5);
         nph_label.setText(s6);
         stt_label.setText(s7);
+
+        if(s8.equals("0")){
+            s8="Chưa phê duyệt";
+        }
+        else if(s8.equals("1")){
+            s8="Từ chối phê duyệt";
+        }
+        else if(s8.equals("2")){
+            s8="Đã phê duyệt chưa có phản hồi";
+        }
+        else if(s8.equals("3")){
+            s8="Đã phản hồi";
+        }
+        else;
         tt_label.setText(s8);
-        System.out.println(s3);
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
