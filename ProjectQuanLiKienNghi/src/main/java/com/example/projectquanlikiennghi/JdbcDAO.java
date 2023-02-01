@@ -4,6 +4,7 @@ package com.example.projectquanlikiennghi;
 import com.example.projectquanlikiennghi.models.Account;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
@@ -12,10 +13,10 @@ import java.util.List;
 import java.util.Map;
 
 // load database
-public class JdbcDAO {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/databaseproject";
+public class  JdbcDAO {
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/testcnpm";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "123456";
+    private static final String DATABASE_PASSWORD = "ad9vl30860";
 
 
     private static final String LOAD_USER = "SELECT * FROM account";
@@ -39,7 +40,7 @@ public class JdbcDAO {
     }
 
     // count for user
-
+    // dem so nguoi dan
     public int count_user() throws SQLException {
         Connection connection = ConnectDB();
 
@@ -49,6 +50,7 @@ public class JdbcDAO {
         return ans;
     }
     // count for KN
+    // dem so kien nghi
     public int count_KN() throws SQLException {
         Connection connection = ConnectDB();
 
@@ -58,6 +60,7 @@ public class JdbcDAO {
         return ans;
     }
     // count for KN chua PD
+    // so kien nghi chua phan hoi
     public int count_KN_chuaPD() throws SQLException {
         Connection connection = ConnectDB();
 
@@ -186,6 +189,8 @@ public class JdbcDAO {
 
         st.executeUpdate(sql);
     }
+
+    // kiem tra thong tin dang nhap
     public Map<String,String> checkloginUser() throws  SQLException {
         Map<String,String> map = new HashMap<>();
         Connection connection = ConnectDB();
@@ -196,6 +201,8 @@ public class JdbcDAO {
         }
         return map;
     }
+
+    // lay tat ca thong tin cua user
     public Account loadUserInformation(String username,String password) throws SQLException {
         String query = "SELECT * from account WHERE username= "+"'"+username+"'"+" AND "+ "password="+"'"+password+"'";
         Connection connection = ConnectDB();
@@ -207,5 +214,76 @@ public class JdbcDAO {
                                     result.getObject(7).toString(),result.getObject(8).toString(),
                                     result.getObject(9).toString());
         return account;
+    }
+
+    // lay kien nghi cua 1 user
+    public ObservableList<KienNghi> getKienNghiuser(String username, String password) throws SQLException {
+        Account acc = loadUserInformation(username,password);
+        String query = "select kn.Ma_kien_nghi , kn.Ngaygui, kn.Noidung, kn.Trangthai, kn.Noidungphanhoi, kn.Ngayphanhoi, kn.Loai  \n" +
+                "from acc_kiennghi akn , kiennghi kn\n" +
+                "where akn.Ma_kien_nghi = kn.Ma_kien_nghi and akn.CCCD ='"+acc.getCCCD()+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        ObservableList<KienNghi> list = FXCollections.observableArrayList();
+        while (result.next()) {
+            System.out.println(result.getObject(6));
+            list.add(new KienNghi(list.size()+1,String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
+                    String.valueOf(result.getObject(3)), result.getInt(4),
+                    String.valueOf(result.getObject(5)), String.valueOf(result.getObject(6)),
+                    String.valueOf(result.getObject(7))));
+
+        }
+        return list;
+    }
+
+    public void delete_kn(String str) throws SQLException {
+        String queryDelKienNghi ="delete from kiennghi where Ma_kien_nghi='"+str+"'";
+        String queryDelAccKienNghi="delete from acc_kiennghi where Ma_kien_nghi='"+str+"'";
+        Connection connection = ConnectDB();
+        Statement st = connection.createStatement();
+        System.out.println(queryDelKienNghi);
+        st.executeUpdate(queryDelAccKienNghi);
+        st.executeUpdate(queryDelKienNghi);
+    }
+
+    public  void add_kn_of_user(String name, String pass,String mkn, String ng,String nd,String loai) throws SQLException {
+        Account acc = loadUserInformation(name,pass);
+        String add_acc_kn ="insert into acc_kiennghi " +
+                "values ('"+acc.getCCCD()+"','"+mkn+"')";
+        String add_kn ="insert into kiennghi " +
+                "values ('"+mkn+"','"+ng+"','"+nd+"','"+0+"','"+""+"',"+"NULL"+",'"+loai+"')";
+        Connection connection = ConnectDB();
+        Statement st = connection.createStatement();
+        System.out.println(add_kn);
+        st.executeUpdate(add_kn);
+        st.executeUpdate(add_acc_kn);
+
+        connection.close();
+    }
+    public void changePassword(String username, String newPassword) throws SQLException {
+        Connection connection = ConnectDB();
+        Statement st = connection.createStatement();
+
+        String sql = "UPDATE account SET password = " + "'"+newPassword +"'"+ " WHERE username = '"+ username +"'"  ;
+        st.executeUpdate(sql);
+    }
+    public Account getUserInformationForChange(String username) throws SQLException {
+        String query = "SELECT * from account WHERE username= "+"'"+username+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        result.next();
+        Account account=new Account(result.getObject(1).toString(),result.getObject(2).toString(),
+                result.getObject(3).toString(),result.getObject(4).toString(),
+                result.getObject(5).toString(),result.getObject(6).toString(),
+                result.getObject(7).toString(),result.getObject(8).toString(),
+                result.getObject(9).toString());
+        return account;
+    }
+    public void changeUserInformationForUser(String username,String Address,String SDT) throws SQLException {
+        Connection connection = ConnectDB();
+        Statement st = connection.createStatement();
+
+        String sql = "UPDATE account SET Diachi = " + "'"+Address +"'"+" , "+"SDT = "+"'"+SDT +"'"+" WHERE username = '"+ username +"'"  ;
+        st.executeUpdate(sql);
     }
 }

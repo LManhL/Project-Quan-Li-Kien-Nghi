@@ -1,24 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerUser.UserHomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="1238.0" style="-fx-background-color: #afc6ed;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerUser.UserHomeController">
    <children>
-      <HBox prefHeight="400.0" prefWidth="600.0">
+      <HBox layoutX="-6.0" prefHeight="620.0" prefWidth="174.0">
          <children>
-            <Pane prefHeight="400.0" prefWidth="200.0">
+            <Pane prefHeight="739.0" prefWidth="174.0" style="-fx-background-color: #afc6ed;">
                <children>
-                  <Button fx:id="buttonLogout" layoutX="38.0" layoutY="264.0" mnemonicParsing="false" onAction="#userLogout" prefHeight="33.0" prefWidth="122.0" text="Log out" />
-                  <Button layoutX="39.0" layoutY="107.0" mnemonicParsing="false" onAction="#userInformation" prefHeight="33.0" prefWidth="122.0" text="thông tin" />
-                  <Button layoutX="39.0" layoutY="186.0" mnemonicParsing="false" onAction="#userList" prefHeight="39.0" prefWidth="122.0" text="danh sách kiến nghị" />
+                  <Button fx:id="buttonLogout" layoutX="21.0" layoutY="515.0" mnemonicParsing="false" onAction="#userLogout" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: #80aaf2;" text="Đăng xuất">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="4.0" layoutY="56.0" mnemonicParsing="false" onAction="#userInformation" prefHeight="75.0" prefWidth="153.0" style="-fx-background-color: #80aaf2;" text="Thông tin cá nhân">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="4.0" layoutY="178.0" mnemonicParsing="false" onAction="#userList" prefHeight="75.0" prefWidth="153.0" style="-fx-background-color: #80aaf2;" text="Danh sách kiến nghị" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
-            <BorderPane fx:id="Bpane_phu" prefHeight="400.0" prefWidth="400.0" />
          </children>
       </HBox>
+      <BorderPane fx:id="Bpane_phu" layoutX="150.0" prefHeight="733.0" prefWidth="1088.0" style="-fx-background-color: #ccd6e6;">
+         <center>
+            <ImageView fitHeight="325.0" fitWidth="329.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../../../picture/login.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </ImageView>
+         </center></BorderPane>
    </children>
 </AnchorPane>

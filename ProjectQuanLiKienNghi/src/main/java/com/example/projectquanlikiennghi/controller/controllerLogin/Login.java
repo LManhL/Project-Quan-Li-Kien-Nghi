@@ -73,6 +73,8 @@ public class Login {
                 userHomeController.setInitialValue(username.getText().toString(),password.getText().toString());
 
                 m.changeScene(nextScene);
+                Main.globalState.setWidth(1239.0);
+                Main.globalState.setHeight(730.0);
             }
             else{
                 wrongLogin.setText("Wrong username or password");
