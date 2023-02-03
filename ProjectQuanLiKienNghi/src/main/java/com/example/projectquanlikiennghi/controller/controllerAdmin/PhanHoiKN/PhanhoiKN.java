@@ -26,16 +26,29 @@ public class PhanhoiKN implements Initializable {
     ObservableList<KienNghi> listPH = FXCollections.observableArrayList();
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {}
+    public void initialize(URL url, ResourceBundle rb) {
 
-    public void loadPhanHoi() throws SQLException, IOException {
         Main main = new Main();
 
-        listPH = repo.listKN_daPD();
+        // load kien nghi da phe duyet
+        try {
+            listPH = repo.listKN_daPD();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         VBox vb = new VBox();
         for (int i=0; i< listPH.size(); i++){
             FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/PhanHoiKN/PhanHoi.fxml"));
-            Parent pr = loader.load();
+            Parent pr = null;
+
+            // load PhanHoi
+            try {
+                pr = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
             vb.getChildren().add(pr);
 
             PhanHoi phKN = (PhanHoi) loader.getController();

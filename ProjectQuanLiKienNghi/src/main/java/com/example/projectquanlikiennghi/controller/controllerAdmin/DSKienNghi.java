@@ -16,8 +16,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DSKienNghi  implements Initializable {
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {}
+
 
     @FXML
     private TableView<KienNghi> table = new TableView<KienNghi>();
@@ -43,7 +42,8 @@ public class DSKienNghi  implements Initializable {
 
     ObservableList<KienNghi> listKN = FXCollections.observableArrayList();
 
-   public void loadKN() throws SQLException {
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
        STT.setCellValueFactory( new PropertyValueFactory<KienNghi, Integer>("STT"));
        Ma_kien_nghi.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Ma_kien_nghi"));
        Ngaygui.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Ngaygui"));
@@ -53,8 +53,12 @@ public class DSKienNghi  implements Initializable {
        Ngayphanhoi.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Ngayphanhoi"));
        Loai.setCellValueFactory( new PropertyValueFactory<KienNghi, String>("Loai"));
 
-       listKN = repo.listKN();
-       table.setItems(listKN);
+        try {
+            listKN = repo.listKN();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        table.setItems(listKN);
        //table.getColumns().addAll(STT,Hovaten,SDT,Diachi,Gioitinh,Namsinh,CCCD,Username,SoKN );
    }
 }

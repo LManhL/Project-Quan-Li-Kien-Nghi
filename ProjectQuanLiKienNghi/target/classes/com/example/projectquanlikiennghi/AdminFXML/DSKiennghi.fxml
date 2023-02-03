@@ -19,10 +19,10 @@
           <TableColumn fx:id="Ma_kien_nghi" prefWidth="43.0" text="Mã KN" />
             <TableColumn fx:id="Ngaygui" prefWidth="57.0" text="Ngày gửi" />
             <TableColumn fx:id="Noidung" prefWidth="57.0" text="Nội dung" />
-            <TableColumn fx:id="Trangthai" prefWidth="66.0" text="Trạng thái" />
-            <TableColumn fx:id="Noidungphanhoi" prefWidth="124.0" text="Nội dung phản hồi" />
-            <TableColumn fx:id="Ngayphanhoi" prefWidth="97.0" text="Ngày phản hồi" />
-            <TableColumn fx:id="Loai" prefWidth="52.0" text="Loại" />
+            <TableColumn fx:id="Trangthai" prefWidth="34.0" text="TT" />
+            <TableColumn fx:id="Noidungphanhoi" prefWidth="128.0" text="Nội dung phản hồi" />
+            <TableColumn fx:id="Ngayphanhoi" prefWidth="102.0" text="Ngày phản hồi" />
+            <TableColumn fx:id="Loai" prefWidth="75.0" text="Loại" />
         </columns>
       </TableView>
    </children>

@@ -20,8 +20,9 @@ import java.util.ResourceBundle;
 public class AdminHomeController implements Initializable  {
 
     @FXML
-    private BorderPane borderPane;
+    public BorderPane borderPane;
 
+    public static BorderPane global_pane;
     @FXML
     private Button buttonHome;
     @FXML
@@ -34,8 +35,7 @@ public class AdminHomeController implements Initializable  {
     private Button buttonPhanhoiKN;
     @FXML
     private Button buttonAddUser;
-    @FXML
-    private Button buttonDelUser;
+
     @FXML
     private Button buttonLogout;
 
@@ -43,18 +43,26 @@ public class AdminHomeController implements Initializable  {
     private HomePage hp ;
     public AdminHomeController(){}
     @Override
-    public void initialize(URL url, ResourceBundle rb) {}
-//    private void loadFXML(String fileName) {
-//        Main main = new Main();
-//        URL url = main.getClass().getResource("AdminFXML/"+fileName+".fxml");
-//        Parent parent;
-//        try {
-//            parent = FXMLLoader.load(url);
-//            borderPane.setCenter(parent);
-//
-//        } catch (IOException ex) {
-//        }
-//    }
+    public void initialize(URL url, ResourceBundle rb) {
+        global_pane = borderPane;
+        Main main = new Main();
+        FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/HomePage.fxml"));
+        Parent pr = null;
+        try {
+            pr = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        borderPane.setCenter(pr);
+        HomePage hp = (HomePage) loader.getController();
+        try {
+            hp.statistic();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     @FXML
     private void clear() {
         borderPane.setCenter(null);
@@ -75,23 +83,23 @@ public class AdminHomeController implements Initializable  {
         HomePage hp = (HomePage) loader.getController();
         hp.statistic();
     }
-    public void userListView(ActionEvent e) throws IOException, SQLException {
+    public void userListView(ActionEvent e) throws IOException {
         Main main = new Main();
-        FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/DSUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/QuanLyUser/DSUser.fxml"));
         Parent pr = loader.load();
         borderPane.setCenter(pr);
 
         DSUser dsUser = (DSUser) loader.getController();
-        dsUser.loadUser();
+        //dsUser.loadUser();
     }
     public void KNView(ActionEvent e) throws IOException, SQLException {
         Main main = new Main();
-        FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/DSKiennghi.fxml"));
+    FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/DSKiennghi.fxml"));
         Parent pr = loader.load();
         borderPane.setCenter(pr);
 
         DSKienNghi dsKN = (DSKienNghi) loader.getController();
-        dsKN.loadKN();
+        //dsKN.loadKN();
     }
     public void pheduyetKNView(ActionEvent e) throws IOException, SQLException {
         Main main = new Main();
@@ -100,7 +108,7 @@ public class AdminHomeController implements Initializable  {
         borderPane.setCenter(pr);
 
         PheduyetKN pdKN = (PheduyetKN) loader.getController();
-        pdKN.load_KN_chuaPD();
+        //pdKN.load_KN_chuaPD();
     }
     public void phanhoiKNView(ActionEvent e) throws IOException, SQLException {
         Main main = new Main();
@@ -109,24 +117,10 @@ public class AdminHomeController implements Initializable  {
         borderPane.setCenter(pr);
 
         PhanhoiKN phKN = (PhanhoiKN) loader.getController();
-        phKN.loadPhanHoi();
+        //phKN.loadPhanHoi();
     }
-    public void themUserView(ActionEvent e) throws IOException {
-        Main main = new Main();
-        FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/ThemUser.fxml"));
-        Parent pr = loader.load();
-        borderPane.setCenter(pr);
 
-        ThemUser addUser = (ThemUser) loader.getController();
-    }
-    public void xoaUserView(ActionEvent e) throws IOException {
-        Main main = new Main();
-        FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/XoaUser.fxml"));
-        Parent pr = loader.load();
-        borderPane.setCenter(pr);
 
-        XoaUser xoaUser = (XoaUser) loader.getController();
-    }
 
 
 }

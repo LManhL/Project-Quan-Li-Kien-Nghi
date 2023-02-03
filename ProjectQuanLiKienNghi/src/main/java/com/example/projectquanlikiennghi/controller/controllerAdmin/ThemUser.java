@@ -59,6 +59,8 @@ public class ThemUser implements Initializable {
         Account acc = new Account(hoten,sdt,diachi,gioitinh,namsinh,
                                   cccd, usn, pass, rl);
         repo.InsertUser(acc);
+
+
     }
 
 }

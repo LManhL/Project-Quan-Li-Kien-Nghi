@@ -16,8 +16,6 @@
             <Button fx:id="buttonKNList" mnemonicParsing="false" onAction="#KNView" prefHeight="40.0" prefWidth="120.0" text="Danh sách KN" />
             <Button fx:id="buttonPheduyetKN" mnemonicParsing="false" onAction="#pheduyetKNView" prefHeight="40.0" prefWidth="120.0" text="Phê duyệt KN" />
             <Button fx:id="buttonPhanhoiKN" mnemonicParsing="false" onAction="#phanhoiKNView" prefHeight="40.0" prefWidth="120.0" text="Phản hồi KN" />
-            <Button fx:id="buttonAddUser" mnemonicParsing="false" onAction="#themUserView" prefHeight="40.0" prefWidth="120.0" text="Thêm user" />
-            <Button fx:id="buttonDelUser" mnemonicParsing="false" onAction="#xoaUserView" prefHeight="40.0" prefWidth="120.0" text="Xóa user" />
             <Button fx:id="buttonLogout" mnemonicParsing="false" onAction="#adminLogout" prefHeight="40.0" prefWidth="120.0" text="Đăng xuất" />
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" visible="false" />
          </children>

@@ -4,7 +4,6 @@ package com.example.projectquanlikiennghi;
 import com.example.projectquanlikiennghi.models.Account;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
@@ -13,10 +12,10 @@ import java.util.List;
 import java.util.Map;
 
 // load database
-public class  JdbcDAO {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/testcnpm";
+public class JdbcDAO {
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/quanlykiennghi";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "ad9vl30860";
+    private static final String DATABASE_PASSWORD = "admin123";
 
 
     private static final String LOAD_USER = "SELECT * FROM account";
@@ -30,7 +29,8 @@ public class  JdbcDAO {
     private static final String COUNT_KN_CHUAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai = 0";
     private static final String COUNT_KN_DAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai =1";
 
-    private static final String CHECK_LOGIN_USER="SELECT username,password from account";
+    private static final String CHECK_LOGIN_USER = "SELECT username,password from account";
+
 
 
     public static Connection ConnectDB() throws SQLException {
@@ -40,7 +40,7 @@ public class  JdbcDAO {
     }
 
     // count for user
-    // dem so nguoi dan
+
     public int count_user() throws SQLException {
         Connection connection = ConnectDB();
 
@@ -50,7 +50,6 @@ public class  JdbcDAO {
         return ans;
     }
     // count for KN
-    // dem so kien nghi
     public int count_KN() throws SQLException {
         Connection connection = ConnectDB();
 
@@ -60,7 +59,6 @@ public class  JdbcDAO {
         return ans;
     }
     // count for KN chua PD
-    // so kien nghi chua phan hoi
     public int count_KN_chuaPD() throws SQLException {
         Connection connection = ConnectDB();
 
@@ -89,7 +87,8 @@ public class  JdbcDAO {
             list.add(new Account(list.size()+1, result.getObject(1).toString(),
                     result.getObject(2).toString(), result.getObject(3).toString(),
                     result.getObject(4).toString(), result.getObject(5).toString(),
-                    result.getObject(6).toString(), result.getObject(7).toString(),0));
+                    result.getObject(6).toString(), result.getObject(7).toString(),
+                    (Integer) result.getObject(10)));
         }
         connection.close();
         return list;
@@ -158,12 +157,12 @@ public class  JdbcDAO {
         String username = acc.getUsername();
         String password = "123456";
         String role = "user";
-        String sql="INSERT INTO account VALUES ("+"'"+hoten+"','"+sdt +"','"+ diachi+"','"
+        String sql="INSERT INTO account VALUES ( '"+ hoten+"','"+sdt +"','"+ diachi+"','"
                 + gioitinh +"','" + namsinh + "','"+ cccd +"','"
                 +username+ "','"+ password +"','"+role + "')";
         System.out.println(sql);
         st.executeUpdate(sql);
-
+        System.out.println("them user thanh cong");
         connection.close();
     }
     // thay doi trang thai kien nghi
@@ -189,8 +188,6 @@ public class  JdbcDAO {
 
         st.executeUpdate(sql);
     }
-
-    // kiem tra thong tin dang nhap
     public Map<String,String> checkloginUser() throws  SQLException {
         Map<String,String> map = new HashMap<>();
         Connection connection = ConnectDB();
@@ -201,10 +198,8 @@ public class  JdbcDAO {
         }
         return map;
     }
-
-    // lay tat ca thong tin cua user
     public Account loadUserInformation(String username,String password) throws SQLException {
-        String query = "SELECT * from account WHERE username= "+"'"+username+"'"+" AND "+ "password="+"'"+password+"'";
+        String query = "SELECT * from account WHERE username= '"+username+"' AND "+ "password="+"'"+password+"'";
         Connection connection = ConnectDB();
         ResultSet result = connection.createStatement().executeQuery(query);
         result.next();
@@ -216,6 +211,14 @@ public class  JdbcDAO {
         return account;
     }
 
+    public void delete_user(String CCCD) throws SQLException{
+        String query = "DELETE from account WHERE CCCD = '"+CCCD+ "' ";
+        Connection connection = ConnectDB();
+        PreparedStatement st = connection.prepareStatement(query);
+        st.executeUpdate();
+        System.out.println("da xoa");
+
+    }
     // lay kien nghi cua 1 user
     public ObservableList<KienNghi> getKienNghiuser(String username, String password) throws SQLException {
         Account acc = loadUserInformation(username,password);

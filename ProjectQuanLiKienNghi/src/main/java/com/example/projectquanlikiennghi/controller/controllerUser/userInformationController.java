@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class userInformationController implements Initializable {
+
     public JdbcDAO repo=new JdbcDAO();
     @FXML
     private Label dia_chi_label;
@@ -63,5 +64,16 @@ public class userInformationController implements Initializable {
         so_dt_label.setText(account.getSDT());
         ngay_sinh_label.setText(account.getNamsinh());
         dia_chi_label.setText(account.getDiachi());
+    }
+
+
+
+    public void showUser(Account acc) {
+        ho_ten_label.setText(acc.getHovaten());
+        gioi_tinh_label.setText(acc.getGioitinh());
+        ma_cccd_label.setText(acc.getCCCD());
+        so_dt_label.setText(acc.getSDT());
+        ngay_sinh_label.setText(acc.getNamsinh());
+        dia_chi_label.setText(acc.getDiachi());
     }
 }

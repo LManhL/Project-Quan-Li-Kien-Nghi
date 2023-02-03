@@ -29,16 +29,29 @@ public class PheduyetKN implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {}
+    public void initialize(URL url, ResourceBundle rb) {
 
-    public void load_KN_chuaPD() throws SQLException, IOException {
         Main main = new Main();
 
-        listKN = repo.listKN_chuaPD();
+        // load kien nghi chua phe duyet
+        try {
+            listKN = repo.listKN_chuaPD();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         VBox vb = new VBox();
         for (int i=0; i< listKN.size(); i++){
             FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/PheDuyetKN/Pheduyet.fxml"));
-            Parent pr = loader.load();
+            Parent pr = null;
+
+            // load PheDuyet
+            try {
+                pr = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
             vb.getChildren().add(pr);
 
             PheDuyet pdKN = (PheDuyet) loader.getController();
