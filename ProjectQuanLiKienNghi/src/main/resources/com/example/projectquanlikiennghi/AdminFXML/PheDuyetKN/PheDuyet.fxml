@@ -4,16 +4,35 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="174.0" prefWidth="1067.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN.PheDuyet">
+<AnchorPane prefHeight="171.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN.PheDuyet">
    <children>
       <TextArea fx:id="MaKN" editable="false" layoutY="34.0" prefHeight="144.0" prefWidth="84.0" wrapText="true" />
-      <Label alignment="CENTER" opacity="0.98" prefHeight="35.0" prefWidth="84.0" text="Mã KN" textAlignment="CENTER" />
-      <Label alignment="CENTER" layoutX="84.0" prefHeight="35.0" prefWidth="121.0" text="Ngày gửi" />
-      <Label alignment="CENTER" layoutX="205.0" prefHeight="35.0" prefWidth="462.0" text="Nội dung" />
-      <Label alignment="CENTER" layoutX="667.0" layoutY="-4.0" prefHeight="42.0" prefWidth="220.0" text="Phê duyệt" />
-      <Button fx:id="buttonAccept" layoutX="724.0" layoutY="54.0" mnemonicParsing="false" onAction="#accept" prefHeight="42.0" prefWidth="121.0" style="-fx-background-color: #3bb143;" text="Chấp nhận" textFill="#f8f7f7" />
-      <Button fx:id="buttonDecline" layoutX="724.0" layoutY="114.0" mnemonicParsing="false" onAction="#decline" prefHeight="42.0" prefWidth="121.0" style="-fx-background-color: #d30000;" text="Từ chối" textFill="#fcfafa" />
+      <Label alignment="CENTER" opacity="0.98" prefHeight="35.0" prefWidth="84.0" text="Mã KN" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="84.0" prefHeight="35.0" prefWidth="121.0" text="Ngày gửi">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="205.0" prefHeight="35.0" prefWidth="462.0" text="Nội dung">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="667.0" layoutY="-4.0" prefHeight="42.0" prefWidth="220.0" text="Phê duyệt">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <Button fx:id="buttonAccept" layoutX="724.0" layoutY="54.0" mnemonicParsing="false" onAction="#accept" prefHeight="42.0" prefWidth="121.0" style="-fx-background-color: #3bb143;" text="Chấp nhận" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="buttonDecline" layoutX="724.0" layoutY="114.0" mnemonicParsing="false" onAction="#decline" prefHeight="42.0" prefWidth="121.0" style="-fx-background-color: #d30000;" text="Từ chối" textFill="#fcfafa">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
       <TextArea fx:id="Ngaygui" editable="false" layoutX="84.0" layoutY="34.0" prefHeight="144.0" prefWidth="121.0" wrapText="true" />
       <TextArea fx:id="Noidung" editable="false" layoutX="205.0" layoutY="34.0" prefHeight="144.0" prefWidth="462.0" wrapText="true" />
       <Label fx:id="status" layoutX="402.0" layoutY="28.0" prefHeight="52.0" prefWidth="74.0" text="Status" visible="false" wrapText="true" />

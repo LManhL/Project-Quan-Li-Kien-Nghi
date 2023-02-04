@@ -1,27 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="742.0" prefWidth="900" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="801.0" prefWidth="1202.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController">
    <left>
-      <VBox prefHeight="702.0" prefWidth="120.0" style="-fx-background-color: #3f7040;" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="801.0" prefWidth="160.0" style="-fx-background-color: #afc6ed;" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" style="-fx-text-fill: #f0f0f0;" visible="false" />
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" visible="false" />
-            <Button fx:id="buttonHome" mnemonicParsing="false" onAction="#adminHomeView" prefHeight="40.0" prefWidth="120.0" text="Trang chủ" />
-            <Button fx:id="buttonUserList" mnemonicParsing="false" onAction="#userListView" prefHeight="40.0" prefWidth="120.0" text="Danh sách user" />
-            <Button fx:id="buttonKNList" mnemonicParsing="false" onAction="#KNView" prefHeight="40.0" prefWidth="120.0" text="Danh sách KN" />
-            <Button fx:id="buttonPheduyetKN" mnemonicParsing="false" onAction="#pheduyetKNView" prefHeight="40.0" prefWidth="120.0" text="Phê duyệt KN" />
-            <Button fx:id="buttonPhanhoiKN" mnemonicParsing="false" onAction="#phanhoiKNView" prefHeight="40.0" prefWidth="120.0" text="Phản hồi KN" />
-            <Button fx:id="buttonLogout" mnemonicParsing="false" onAction="#adminLogout" prefHeight="40.0" prefWidth="120.0" text="Đăng xuất" />
+            <Button fx:id="buttonHome" mnemonicParsing="false" onAction="#adminHomeView" prefHeight="67.0" prefWidth="184.0" style="-fx-background-color: #80aaf2;" text="Trang chủ">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="buttonUserList" mnemonicParsing="false" onAction="#userListView" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #80aaf2;" text="Danh sách user">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="buttonKNList" mnemonicParsing="false" onAction="#KNView" prefHeight="62.0" prefWidth="159.0" style="-fx-background-color: #80aaf2;" text="Danh sách kiến nghị">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="buttonPheduyetKN" mnemonicParsing="false" onAction="#pheduyetKNView" prefHeight="61.0" prefWidth="157.0" style="-fx-background-color: #80aaf2;" text="Phê duyệt kiến nghị">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
+            <Button fx:id="buttonPhanhoiKN" mnemonicParsing="false" onAction="#phanhoiKNView" prefHeight="62.0" prefWidth="183.0" style="-fx-background-color: #80aaf2;" text="Phản hồi kiến nghị">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></Button>
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" visible="false" />
+            <Button fx:id="buttonLogout" mnemonicParsing="false" onAction="#adminLogout" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: #80aaf2;" text="Đăng xuất">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin></Button>
          </children>
       </VBox>
    </left>
    <top>
-      <HBox prefHeight="40.0" prefWidth="650.0" style="-fx-background-color: #2b2a26;" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="0.0" prefWidth="1202.0" style="-fx-background-color: #2b2a26;" BorderPane.alignment="CENTER" />
    </top>
 </BorderPane>
