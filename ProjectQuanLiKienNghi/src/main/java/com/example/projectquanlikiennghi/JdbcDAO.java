@@ -21,13 +21,13 @@ public class JdbcDAO {
     private static final String LOAD_USER = "SELECT * FROM account";
     private static final String LOAD_KN = "SELECT * FROM kiennghi";
     private static final String LOAD_KN_CHUAPD = "SELECT * FROM kiennghi WHERE Trangthai = 0";
-    private static final String LOAD_KN_DAPD = "SELECT * FROM kiennghi WHERE Trangthai = 1";
+    private static final String LOAD_KN_DAPD = "SELECT * FROM kiennghi WHERE Trangthai = 2";
 
 
     private static final String COUNT_USER = "SELECT count(CCCD) FROM account;";
     private static final String COUNT_KN = "SELECT count(Ma_kien_nghi) FROM kiennghi";
     private static final String COUNT_KN_CHUAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai = 0";
-    private static final String COUNT_KN_DAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai =1";
+    private static final String COUNT_KN_DAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai =2";
 
     private static final String CHECK_LOGIN_USER = "SELECT username,password from account";
 

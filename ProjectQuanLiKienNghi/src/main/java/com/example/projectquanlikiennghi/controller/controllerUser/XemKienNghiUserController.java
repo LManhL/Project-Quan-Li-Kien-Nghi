@@ -43,7 +43,7 @@ public class XemKienNghiUserController implements Initializable {
         UserHomeController uhc = new UserHomeController();
         uhc.change_Bphu("UserFXML/DSKiennghiUser.fxml");
     }
-    void set_inf(String s1, String s2, String s3,String s4,String s5,String s6,String s7,String s8){
+    public void set_inf(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8){
         l_label.setText(s1);
         mkn_label.setText(s2);
         nd_label.setText(s3);

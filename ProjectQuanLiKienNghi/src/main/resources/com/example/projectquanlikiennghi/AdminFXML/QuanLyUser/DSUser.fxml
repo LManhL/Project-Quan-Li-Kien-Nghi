@@ -7,23 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="410.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.DSUser">
+<AnchorPane prefHeight="742.0" prefWidth="900" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.DSUser">
    <children>
       <Label layoutX="169.0" layoutY="14.0" text="Danh sách User">
          <font>
             <Font size="28.0" />
          </font></Label>
-      <TableView fx:id="table" layoutY="54.0" prefHeight="323.0" prefWidth="530.0">
+      <TableView fx:id="table" layoutY="54.0" prefHeight="303.0" prefWidth="900">
         <columns>
           <TableColumn fx:id="STT" prefWidth="26.0" text="STT" />
-          <TableColumn fx:id="Hovaten" prefWidth="79.0" text="Họ và tên" />
-            <TableColumn fx:id="SDT" prefWidth="48.0" text="SDT" />
-            <TableColumn fx:id="Diachi" prefWidth="78.0" text="Địa chỉ" />
-            <TableColumn fx:id="Gioitinh" minWidth="0.0" prefWidth="58.0" text="Giới tính" />
-            <TableColumn fx:id="Namsinh" prefWidth="58.0" text="Năm sinh" />
-            <TableColumn fx:id="CCCD" minWidth="0.0" prefWidth="63.0" text="CCCD" />
-            <TableColumn fx:id="Username" prefWidth="64.0" text="Username" />
-            <TableColumn fx:id="SoKN" prefWidth="42.0" text="Số KN" />
+          <TableColumn fx:id="Hovaten" prefWidth="145.0" text="Họ và tên" />
+            <TableColumn fx:id="SDT" prefWidth="84.0" text="SDT" />
+            <TableColumn fx:id="Diachi" prefWidth="151.0" text="Địa chỉ" />
+            <TableColumn fx:id="Gioitinh" minWidth="0.0" prefWidth="70.0" text="Giới tính" />
+            <TableColumn fx:id="Namsinh" prefWidth="63.0" text="Năm sinh" />
+            <TableColumn fx:id="CCCD" minWidth="0.0" prefWidth="58.0" text="CCCD" />
+            <TableColumn fx:id="Username" prefWidth="95.0" text="Username" />
+            <TableColumn fx:id="SoKN" prefWidth="64.0" text="Số KN" />
         </columns>
       </TableView>
       <Button fx:id="buttonAddUser" layoutX="229.0" layoutY="384.0" mnemonicParsing="false" onAction="#themUser" text="Thêm user" />

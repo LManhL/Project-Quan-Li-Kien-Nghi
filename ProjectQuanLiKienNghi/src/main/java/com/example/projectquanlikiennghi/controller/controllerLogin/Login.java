@@ -94,6 +94,8 @@ public class Login {
             wrongLogin.setText("Success!");
 
             m.changeScene(nextScene);
+            Main.globalState.setWidth(1100.0);
+            Main.globalState.setHeight(730.0);
         }
         else{
             wrongLogin.setText("Wrong username or password");
