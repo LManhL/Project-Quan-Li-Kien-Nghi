@@ -6,23 +6,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="742.0" prefWidth="900" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.DSKienNghi">
+<AnchorPane prefHeight="707.0" prefWidth="928.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.DSKienNghi">
    <children>
-      <Label layoutX="140.0" layoutY="14.0" text="Danh sách kiến nghị">
+      <Label layoutX="323.0" layoutY="14.0" prefHeight="40.0" prefWidth="290.0" text="Danh sách kiến nghị" textFill="#271ad3">
          <font>
-            <Font size="28.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <TableView fx:id="table" layoutY="52.0" prefHeight="485.0" prefWidth="900">
+      <TableView fx:id="table" layoutX="7.0" layoutY="61.0" prefHeight="584.0" prefWidth="908.0">
         <columns>
-          <TableColumn fx:id="STT" prefWidth="46.0" text="STT" />
-          <TableColumn fx:id="Ma_kien_nghi" prefWidth="62.0" text="Mã KN" />
-            <TableColumn fx:id="Ngaygui" prefWidth="60.0" text="Ngày gửi" />
-            <TableColumn fx:id="Noidung" minWidth="4.0" prefWidth="183.0" text="Nội dung" />
-            <TableColumn fx:id="Trangthai" minWidth="0.0" prefWidth="67.0" text="Trạng thái" />
-            <TableColumn fx:id="Noidungphanhoi" prefWidth="161.0" text="Nội dung phản hồi" />
-            <TableColumn fx:id="Ngayphanhoi" minWidth="6.0" prefWidth="110.0" text="Ngày phản hồi" />
-            <TableColumn fx:id="Loai" minWidth="2.0" prefWidth="153.0" text="Loại" />
+          <TableColumn fx:id="STT" prefWidth="46.0" style="-fx-font-size: 14;" text="STT" />
+          <TableColumn fx:id="Ma_kien_nghi" prefWidth="62.0" style="-fx-font-size: 14;" text="Mã KN" />
+            <TableColumn fx:id="Ngaygui" prefWidth="110.0" style="-fx-font-size: 14;" text="Ngày gửi" />
+            <TableColumn fx:id="Noidung" minWidth="4.0" prefWidth="155.0" style="-fx-font-size: 14;" text="Nội dung" />
+            <TableColumn fx:id="Trangthai" minWidth="0.0" prefWidth="119.0" style="-fx-font-size: 14;" text="Trạng thái" />
+            <TableColumn fx:id="Noidungphanhoi" prefWidth="139.0" style="-fx-font-size: 14;" text="Nội dung phản hồi" />
+            <TableColumn fx:id="Ngayphanhoi" minWidth="6.0" prefWidth="113.0" style="-fx-font-size: 14;" text="Ngày phản hồi" />
+            <TableColumn fx:id="Loai" minWidth="2.0" prefWidth="173.0" style="-fx-font-size: 14;" text="Loại" />
         </columns>
       </TableView>
    </children>

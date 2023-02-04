@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="410.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN.PheduyetKN">
+<AnchorPane prefHeight="744.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN.PheduyetKN">
    <children>
-      <Label alignment="CENTER" layoutX="142.0" layoutY="14.0" text="Phê duyệt kiến nghị">
+      <Label alignment="CENTER" layoutX="341.0" prefHeight="47.0" prefWidth="271.0" text="Phê duyệt kiến nghị" textFill="#1b2cc6">
          <font>
-            <Font size="28.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="scrollPane" layoutY="54.0" prefHeight="357.0" prefWidth="530.0" />
+      <ScrollPane fx:id="scrollPane" layoutY="54.0" prefHeight="641.0" prefWidth="889.0" />
    </children>
 </AnchorPane>

@@ -7,25 +7,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="742.0" prefWidth="900" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.DSUser">
+<AnchorPane prefHeight="696.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.DSUser">
    <children>
-      <Label layoutX="169.0" layoutY="14.0" text="Danh sách User">
+      <Label layoutX="366.0" layoutY="14.0" text="Danh sách User" textFill="#2031cd">
          <font>
-            <Font size="28.0" />
+            <Font name="System Bold" size="28.0" />
          </font></Label>
-      <TableView fx:id="table" layoutY="54.0" prefHeight="303.0" prefWidth="900">
+      <TableView fx:id="table" layoutX="5.0" layoutY="71.0" prefHeight="558.0" prefWidth="912.0">
         <columns>
-          <TableColumn fx:id="STT" prefWidth="26.0" text="STT" />
-          <TableColumn fx:id="Hovaten" prefWidth="145.0" text="Họ và tên" />
-            <TableColumn fx:id="SDT" prefWidth="84.0" text="SDT" />
-            <TableColumn fx:id="Diachi" prefWidth="151.0" text="Địa chỉ" />
-            <TableColumn fx:id="Gioitinh" minWidth="0.0" prefWidth="70.0" text="Giới tính" />
-            <TableColumn fx:id="Namsinh" prefWidth="63.0" text="Năm sinh" />
-            <TableColumn fx:id="CCCD" minWidth="0.0" prefWidth="58.0" text="CCCD" />
-            <TableColumn fx:id="Username" prefWidth="95.0" text="Username" />
-            <TableColumn fx:id="SoKN" prefWidth="64.0" text="Số KN" />
+          <TableColumn fx:id="STT" prefWidth="39.0" style="-fx-font-size: 14;" text="STT" />
+          <TableColumn fx:id="Hovaten" prefWidth="132.0" style="-fx-font-size: 14;" text="Họ và tên" />
+            <TableColumn fx:id="SDT" prefWidth="60.0" style="-fx-font-size: 14;" text="SDT" />
+            <TableColumn fx:id="Diachi" prefWidth="175.0" style="-fx-font-size: 14;" text="Địa chỉ" />
+            <TableColumn fx:id="Gioitinh" minWidth="0.0" prefWidth="79.0" style="-fx-font-size: 14;" text="Giới tính" />
+            <TableColumn fx:id="Namsinh" prefWidth="72.0" style="-fx-font-size: 14;" text="Năm sinh" />
+            <TableColumn fx:id="CCCD" minWidth="0.0" prefWidth="177.0" style="-fx-font-size: 14;" text="CCCD" />
+            <TableColumn fx:id="Username" prefWidth="103.0" style="-fx-font-size: 14;" text="Username" />
+            <TableColumn fx:id="SoKN" prefWidth="73.0" style="-fx-font-size: 14;" text="Số KN" />
         </columns>
       </TableView>
-      <Button fx:id="buttonAddUser" layoutX="229.0" layoutY="384.0" mnemonicParsing="false" onAction="#themUser" text="Thêm user" />
+      <Button fx:id="buttonAddUser" layoutX="382.0" layoutY="641.0" mnemonicParsing="false" onAction="#themUser" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #91bced;" text="Thêm user">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>

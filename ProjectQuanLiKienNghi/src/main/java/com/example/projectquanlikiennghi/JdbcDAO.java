@@ -13,9 +13,9 @@ import java.util.Map;
 
 // load database
 public class JdbcDAO {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/quanlykiennghi";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/testcnpm";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "admin123";
+    private static final String DATABASE_PASSWORD = "ad9vl30860";
 
 
     private static final String LOAD_USER = "SELECT * FROM account";
@@ -88,7 +88,7 @@ public class JdbcDAO {
                     result.getObject(2).toString(), result.getObject(3).toString(),
                     result.getObject(4).toString(), result.getObject(5).toString(),
                     result.getObject(6).toString(), result.getObject(7).toString(),
-                    (Integer) result.getObject(10)));
+                    Integer.valueOf(result.getObject(10).toString())));
         }
         connection.close();
         return list;

@@ -5,51 +5,51 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="410.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.HomePage">
+<AnchorPane prefHeight="635.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.HomePage">
    <children>
-      <Label alignment="CENTER" layoutX="93.0" layoutY="6.0" prefHeight="79.0" prefWidth="307.0" text="Quản lý kiến nghị" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="250.0" layoutY="14.0" prefHeight="62.0" prefWidth="307.0" text="Quản lý kiến nghị" textAlignment="CENTER" textFill="#1b2bdd">
          <font>
-            <Font size="28.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="93.0" layoutY="113.0" prefHeight="30.0" prefWidth="157.0" text="Tổng số user: ">
+      <Label layoutX="205.0" layoutY="146.0" prefHeight="35.0" prefWidth="171.0" text="Tổng số user: ">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="93.0" layoutY="158.0" prefHeight="30.0" prefWidth="190.0" text="Tổng số kiến nghị: ">
+      <Label layoutX="205.0" layoutY="218.0" prefHeight="35.0" prefWidth="224.0" text="Tổng số kiến nghị: ">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="93.0" layoutY="205.0" prefHeight="30.0" prefWidth="280.0" text="Số kiến nghị chưa phê duyệt:">
+      <Label layoutX="206.0" layoutY="300.0" prefHeight="35.0" prefWidth="340.0" text="Số kiến nghị chưa phê duyệt:">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="93.0" layoutY="252.0" prefHeight="30.0" prefWidth="255.0" text="Số kiến nghị đã phê duyệt:">
+      <Label layoutX="205.0" layoutY="383.0" prefHeight="35.0" prefWidth="324.0" text="Số kiến nghị đã phê duyệt:">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Text fx:id="tongSoUser" layoutX="221.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="157.0">
+      <Text fx:id="tongSoUser" layoutX="404.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="157.0">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fx:id="tongSoKN" layoutX="262.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="171.13671875">
+      <Text fx:id="tongSoKN" layoutX="440.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="171.13671875">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fx:id="KNchuaPheDuyet" layoutX="359.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="148.13671875">
+      <Text fx:id="KNchuaPheDuyet" layoutX="560.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="148.13671875">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Text fx:id="KNdaPheDuyet" layoutX="335.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="148.13671875">
+      <Text fx:id="KNdaPheDuyet" layoutX="547.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="148.13671875">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Text>
    </children>
