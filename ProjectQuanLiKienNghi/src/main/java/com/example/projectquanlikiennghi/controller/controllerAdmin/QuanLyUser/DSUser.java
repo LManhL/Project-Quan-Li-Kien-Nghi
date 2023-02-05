@@ -1,10 +1,10 @@
-package com.example.projectquanlikiennghi.controller.controllerAdmin;
+package com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser;
 
 import com.example.projectquanlikiennghi.JdbcDAO;
 import com.example.projectquanlikiennghi.Main;
+import com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController;
 import com.example.projectquanlikiennghi.controller.controllerUser.userInformationController;
 import com.example.projectquanlikiennghi.models.Account;
-import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -55,6 +55,8 @@ public class DSUser implements Initializable {
 
     private ContextMenu contextMenu;
     private MenuItem mi_xem;
+    private MenuItem mi_sua;
+
     private MenuItem mi_xoa;
 
     @Override
@@ -86,10 +88,10 @@ public class DSUser implements Initializable {
             public void handle(ActionEvent event) {
                 Account acc= table.getSelectionModel().getSelectedItem();
                 try {
-                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("UserFXML/userInformation.fxml"));
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyUser/XemInfoUser.fxml"));
                     Parent p = loader.load();
-                    userInformationController uc = loader.getController();
-                    uc.showUser(acc);
+                    XemInfoUser uc = loader.getController();
+                    uc.set_inf(acc);
                     AdminHomeController.global_pane.setCenter(p);
 
 
@@ -100,16 +102,40 @@ public class DSUser implements Initializable {
         });
         contextMenu.getItems().add(mi_xem);
 
-
-        mi_xoa = new MenuItem("Xoa");
-        mi_xoa.setOnAction(new EventHandler<ActionEvent>() {
+        mi_sua = new MenuItem("Sửa");
+        mi_sua.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Account acc= table.getSelectionModel().getSelectedItem();
                 try {
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyUser/SuaInfoUser.fxml"));
+                    Parent p = loader.load();
+                    SuaInfoUserController uc = loader.getController();
+                    uc.set_inf(acc);
+                    AdminHomeController.global_pane.setCenter(p);
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        contextMenu.getItems().add(mi_sua);
+
+        mi_xoa = new MenuItem("Xoa");
+        mi_xoa.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) throws RuntimeException {
+                Account acc= table.getSelectionModel().getSelectedItem();
+                try {
                     repo.delete_user(acc.getCCCD());
                     System.out.println("xoa user thanh cong");
-                } catch (SQLException e) {
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyUser/DSUser.fxml"));
+                    Parent p = loader.load();
+
+                    AdminHomeController.global_pane.setCenter(p);
+
+
+                } catch (SQLException | IOException e) {
                     System.out.println("xoa user that bai");
                     throw new RuntimeException(e);
                 }

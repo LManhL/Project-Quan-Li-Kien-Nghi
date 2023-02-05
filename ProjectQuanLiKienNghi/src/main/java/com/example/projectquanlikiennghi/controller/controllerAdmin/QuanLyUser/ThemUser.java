@@ -1,13 +1,19 @@
-package com.example.projectquanlikiennghi.controller.controllerAdmin;
+package com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser;
 
 import com.example.projectquanlikiennghi.JdbcDAO;
+import com.example.projectquanlikiennghi.Main;
+import com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController;
 import com.example.projectquanlikiennghi.models.Account;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,8 +21,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ThemUser implements Initializable {
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {}
 
     @FXML
     private TextField Hovaten;
@@ -40,8 +44,15 @@ public class ThemUser implements Initializable {
     private TextField role;
     @FXML
     private Button buttonSummit;
-
+    @FXML
+    private Label status;
+    @FXML
+    private Button button_back;
+    @FXML
+    private ImageView back_buttonimg;
     JdbcDAO repo = new JdbcDAO();
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {}
 
     public void summit(ActionEvent event) throws IOException, SQLException {
         String hoten = Hovaten.getText();
@@ -59,7 +70,15 @@ public class ThemUser implements Initializable {
         Account acc = new Account(hoten,sdt,diachi,gioitinh,namsinh,
                                   cccd, usn, pass, rl);
         repo.InsertUser(acc);
+        status.setVisible(true);
+        buttonSummit.setVisible(false);
 
+    }
+    public void back() throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyUser/DSUser.fxml"));
+        Parent p = loader.load();
+
+        AdminHomeController.global_pane.setCenter(p);
 
     }
 

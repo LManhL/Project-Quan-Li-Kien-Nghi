@@ -1,9 +1,8 @@
-package com.example.projectquanlikiennghi.controller.controllerAdmin;
+package com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN;
 
 import com.example.projectquanlikiennghi.JdbcDAO;
 import com.example.projectquanlikiennghi.Main;
-import com.example.projectquanlikiennghi.controller.controllerUser.XemKienNghiUserController;
-import com.example.projectquanlikiennghi.models.Account;
+import com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,6 +46,7 @@ public class DSKienNghi  implements Initializable {
     @FXML
     private TableColumn<KienNghi, String> Loai = new TableColumn<>();
 
+
     JdbcDAO repo = new JdbcDAO();
 
     ObservableList<KienNghi> listKN = FXCollections.observableArrayList();
@@ -54,6 +54,7 @@ public class DSKienNghi  implements Initializable {
 
     private ContextMenu contextMenu;
     private MenuItem mi_xem;
+    private MenuItem mi_sua;
     private MenuItem mi_xoa;
 
     @Override
@@ -84,32 +85,55 @@ public class DSKienNghi  implements Initializable {
             public void handle(ActionEvent event) {
                 KienNghi kn = table.getSelectionModel().getSelectedItem();
                 try {
-                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("UserFXML/showKienNghi.fxml"));
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyKN/XemInfoKN.fxml"));
                     Parent p = loader.load();
-                    XemKienNghiUserController knc = loader.getController();
-                    knc.set_inf(kn.getLoai(),kn.getMa_kien_nghi(),kn.getNoidung(),
-                                kn.getNoidungphanhoi(),kn.getNgaygui(),kn.getNgayphanhoi(),
-                                String.valueOf(kn.getSTT()),String.valueOf(kn.getTrangthai()));
+                    XemInfoKN knc = loader.getController();
+                    knc.set_inf(kn);
                     AdminHomeController.global_pane.setCenter(p);
 
 
-                } catch (IOException e) {
+                } catch (IOException | SQLException e) {
                     throw new RuntimeException(e);
                 }
             }
         });
         contextMenu.getItems().add(mi_xem);
 
-
-        mi_xoa = new MenuItem("Xoa");
-        mi_xoa.setOnAction(new EventHandler<ActionEvent>() {
+        mi_sua = new MenuItem("Sửa");
+        mi_sua.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 KienNghi kn = table.getSelectionModel().getSelectedItem();
                 try {
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyKN/SuaInfoKN.fxml"));
+                    Parent p = loader.load();
+                    SuaKiennghiController knc = loader.getController();
+                    knc.set_inf(kn);
+                    AdminHomeController.global_pane.setCenter(p);
+
+
+                } catch (IOException | SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        contextMenu.getItems().add(mi_sua);
+
+
+        mi_xoa = new MenuItem("Xoa");
+        mi_xoa.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) throws RuntimeException {
+                KienNghi kn = table.getSelectionModel().getSelectedItem();
+                try {
                     repo.delete_kn(kn.getMa_kien_nghi());
                     System.out.println("xoa kn thanh cong");
-                } catch (SQLException e) {
+
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyKN/DSKienNghi.fxml"));
+                    Parent p = loader.load();
+
+                    AdminHomeController.global_pane.setCenter(p);
+                } catch (SQLException | IOException e) {
                     System.out.println("xoa kn that bai");
                     throw new RuntimeException(e);
                 }
@@ -137,4 +161,5 @@ public class DSKienNghi  implements Initializable {
             }
         });
    }
+
 }

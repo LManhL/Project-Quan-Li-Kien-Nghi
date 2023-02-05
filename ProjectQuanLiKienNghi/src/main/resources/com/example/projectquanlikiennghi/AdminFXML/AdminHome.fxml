@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -13,44 +15,79 @@
          <children>
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" style="-fx-text-fill: #f0f0f0;" visible="false" />
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" visible="false" />
-            <Button fx:id="buttonHome" mnemonicParsing="false" onAction="#adminHomeView" prefHeight="67.0" prefWidth="184.0" style="-fx-background-color: #80aaf2;" text="Trang chủ">
+            <Button fx:id="buttonHome" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#adminHomeView" prefHeight="67.0" prefWidth="184.0" style="-fx-background-color: #80aaf2;" text="Trang chủ">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.margin></Button>
-            <Button fx:id="buttonUserList" mnemonicParsing="false" onAction="#userListView" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #80aaf2;" text="Danh sách user">
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../picture/homeicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="buttonUserList" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#userListView" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #80aaf2;" text="Danh sách user">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.margin></Button>
-            <Button fx:id="buttonKNList" mnemonicParsing="false" onAction="#KNView" prefHeight="62.0" prefWidth="159.0" style="-fx-background-color: #80aaf2;" text="Danh sách kiến nghị">
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../picture/listicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="buttonKNList" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#KNView" prefHeight="62.0" prefWidth="159.0" style="-fx-background-color: #80aaf2;" text="Danh sách KN">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.margin></Button>
-            <Button fx:id="buttonPheduyetKN" mnemonicParsing="false" onAction="#pheduyetKNView" prefHeight="61.0" prefWidth="157.0" style="-fx-background-color: #80aaf2;" text="Phê duyệt kiến nghị">
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="84.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../picture/kiennghiicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="buttonPheduyetKN" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#pheduyetKNView" prefHeight="61.0" prefWidth="157.0" style="-fx-background-color: #80aaf2;" text="Phê duyệt KN">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.margin></Button>
-            <Button fx:id="buttonPhanhoiKN" mnemonicParsing="false" onAction="#phanhoiKNView" prefHeight="62.0" prefWidth="183.0" style="-fx-background-color: #80aaf2;" text="Phản hồi kiến nghị">
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../picture/approveicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="buttonPhanhoiKN" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#phanhoiKNView" prefHeight="62.0" prefWidth="183.0" style="-fx-background-color: #80aaf2;" text="Phản hồi KN">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
                <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.margin></Button>
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../picture/feedbackicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="117.0" visible="false" />
             <Button fx:id="buttonLogout" mnemonicParsing="false" onAction="#adminLogout" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: #80aaf2;" text="Đăng xuất">
                <font>

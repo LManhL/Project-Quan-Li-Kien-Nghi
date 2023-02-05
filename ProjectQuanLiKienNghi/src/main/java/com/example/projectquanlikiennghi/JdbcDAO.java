@@ -13,9 +13,9 @@ import java.util.Map;
 
 // load database
 public class JdbcDAO {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/testcnpm";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/quanlykiennghi";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "ad9vl30860";
+    private static final String DATABASE_PASSWORD = "admin123";
 
 
     private static final String LOAD_USER = "SELECT * FROM account";
@@ -30,7 +30,6 @@ public class JdbcDAO {
     private static final String COUNT_KN_DAPD = "SELECT count(Ma_kien_nghi) FROM kiennghi WHERE Trangthai =2";
 
     private static final String CHECK_LOGIN_USER = "SELECT username,password from account";
-
 
 
     public static Connection ConnectDB() throws SQLException {
@@ -155,11 +154,11 @@ public class JdbcDAO {
         String namsinh = acc.getNamsinh();
         String cccd = acc.getCCCD();
         String username = acc.getUsername();
-        String password = "123456";
+        String password = acc.getPassword();
         String role = "user";
         String sql="INSERT INTO account VALUES ( '"+ hoten+"','"+sdt +"','"+ diachi+"','"
                 + gioitinh +"','" + namsinh + "','"+ cccd +"','"
-                +username+ "','"+ password +"','"+role + "')";
+                +username+ "','"+ password +"','"+role + "','0')";
         System.out.println(sql);
         st.executeUpdate(sql);
         System.out.println("them user thanh cong");
@@ -287,6 +286,44 @@ public class JdbcDAO {
         Statement st = connection.createStatement();
 
         String sql = "UPDATE account SET Diachi = " + "'"+Address +"'"+" , "+"SDT = "+"'"+SDT +"'"+" WHERE username = '"+ username +"'"  ;
+        st.executeUpdate(sql);
+    }
+    public void AdminchangeUserInf(String hoten,String gender,String Address,
+                                   String birth, String SDT, String cccd,
+                                   String username, String password) throws SQLException {
+        Connection connection = ConnectDB();
+        Statement st = connection.createStatement();
+
+        String sql = "UPDATE account SET Hoten = " + "'"+hoten +"' , "+"SDT = "+"'"+SDT +
+                     "' , Diachi = '" + Address + "' , Gioitinh =  '"+gender + "' , Namsinh = '" + birth +
+                     "' , username = '"+ username+ "', password = '"+password +
+                     "' WHERE CCCD = '"+ cccd +"'"  ;
+        st.executeUpdate(sql);
+    }
+    public String findUsernameByKN(String maKN) throws SQLException{
+        String query = "SELECT hoten FROM account acc, acc_kiennghi acc_kn WHERE acc_kn.Ma_kien_nghi = '"
+                        + maKN + "' and acc.CCCD = acc_kn.CCCD";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        result.next();
+        return result.getObject(1).toString();
+    }
+    public String findCoquanByKN(String maKN) throws SQLException{
+        String query = "SELECT TenCoQuan FROM coquanphanhoi cqph, kiennghi_coquan kn_cq WHERE kn_cq.Ma_kien_nghi  = '"
+                + maKN + "' and cqph.MaCoQuan = kn_cq.MaCoQuan";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        result.next();
+        return result.getObject(1).toString();
+    }
+    public void AdminchangeKNINF(String send_date, String content,
+                                 String feedback, String feed_date, String maKN)throws SQLException{
+        Connection connection = ConnectDB();
+        Statement st = connection.createStatement();
+
+        String sql = "UPDATE kiennghi SET Ngaygui = '"+send_date +"' , "+"Noidung = '"+content +
+                "' , Noidungphanhoi = '" + feedback + "' , Ngayphanhoi =  '"+feed_date +
+                "' WHERE Ma_kien_nghi = '"+ maKN +"'"  ;
         st.executeUpdate(sql);
     }
 }

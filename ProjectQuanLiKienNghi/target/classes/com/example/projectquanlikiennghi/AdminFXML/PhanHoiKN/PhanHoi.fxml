@@ -5,21 +5,21 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="174.0" prefWidth="1067.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PhanHoiKN.PhanHoi">
+<AnchorPane prefHeight="175.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PhanHoiKN.PhanHoi">
    <children>
       <Label alignment="CENTER" prefHeight="35.0" prefWidth="72.0" text="Mã KN" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" prefHeight="35.0" prefWidth="118.0" text="Ngày gửi" />
-      <Label alignment="CENTER" layoutX="188.0" prefHeight="35.0" prefWidth="234.0" text="Nội dung" />
-      <Label alignment="CENTER" layoutX="422.0" layoutY="-2.0" prefHeight="35.0" prefWidth="174.0" text="Ngày phản hồi" />
-      <Label alignment="CENTER" layoutX="596.0" layoutY="-2.0" prefHeight="35.0" prefWidth="102.0" text="Nội dung phản hồi" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="698.0" layoutY="-1.0" prefHeight="35.0" prefWidth="110.0" text="CQPH" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" prefHeight="35.0" prefWidth="94.0" text="Ngày gửi" />
+      <Label alignment="CENTER" layoutX="164.0" layoutY="-1.0" prefHeight="35.0" prefWidth="234.0" text="Nội dung" />
+      <Label alignment="CENTER" layoutX="398.0" layoutY="-1.0" prefHeight="35.0" prefWidth="85.0" text="Ngày phản hồi" />
+      <Label alignment="CENTER" layoutX="482.0" layoutY="-1.0" prefHeight="35.0" prefWidth="120.0" text="Nội dung phản hồi" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="602.0" prefHeight="35.0" prefWidth="110.0" text="CQPH" />
       <TextArea fx:id="MaKN" editable="false" layoutY="34.0" prefHeight="141.0" prefWidth="72.0" wrapText="true" />
-      <TextArea fx:id="Ngaygui" editable="false" layoutX="70.0" layoutY="34.0" prefHeight="141.0" prefWidth="118.0" wrapText="true" />
-      <TextArea fx:id="Noidung" editable="false" layoutX="188.0" layoutY="34.0" prefHeight="141.0" prefWidth="234.0" wrapText="true" />
-      <TextArea fx:id="Ngayphanhoi" layoutX="422.0" layoutY="34.0" prefHeight="141.0" prefWidth="174.0" wrapText="true" />
-      <TextArea fx:id="Noidungphanhoi" layoutX="596.0" layoutY="34.0" prefHeight="141.0" prefWidth="102.0" wrapText="true" />
-      <TextArea fx:id="CQPH" layoutX="698.0" layoutY="34.0" prefHeight="141.0" prefWidth="110.0" wrapText="true" />
-      <Button fx:id="buttonSend" layoutX="861.0" layoutY="33.0" mnemonicParsing="false" onAction="#guiPhanhoi" prefHeight="45.0" prefWidth="102.0" text="Gửi" />
-      <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" layoutX="893.0" layoutY="22.0" prefHeight="67.0" prefWidth="129.0" text="Đã gửi phản hồi" visible="false" wrapText="true" />
+      <TextArea fx:id="Ngaygui" editable="false" layoutX="70.0" layoutY="34.0" prefHeight="141.0" prefWidth="94.0" wrapText="true" />
+      <TextArea fx:id="Noidung" editable="false" layoutX="164.0" layoutY="34.0" prefHeight="141.0" prefWidth="234.0" wrapText="true" />
+      <TextArea fx:id="Ngayphanhoi" layoutX="398.0" layoutY="34.0" prefHeight="141.0" prefWidth="85.0" wrapText="true" />
+      <TextArea fx:id="Noidungphanhoi" layoutX="482.0" layoutY="34.0" prefHeight="141.0" prefWidth="120.0" wrapText="true" />
+      <TextArea fx:id="CQPH" layoutX="602.0" layoutY="35.0" prefHeight="141.0" prefWidth="110.0" wrapText="true" />
+      <Button fx:id="buttonSend" layoutX="736.0" layoutY="35.0" mnemonicParsing="false" onAction="#guiPhanhoi" prefHeight="45.0" prefWidth="102.0" text="Gửi" />
+      <Label fx:id="status" alignment="CENTER" contentDisplay="CENTER" layoutX="743.0" layoutY="34.0" prefHeight="67.0" prefWidth="129.0" text="Đã gửi phản hồi" visible="false" wrapText="true" />
    </children>
 </AnchorPane>

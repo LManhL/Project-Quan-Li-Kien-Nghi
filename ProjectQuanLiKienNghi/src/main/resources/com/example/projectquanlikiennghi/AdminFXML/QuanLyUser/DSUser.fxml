@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="696.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.DSUser">
+<AnchorPane prefHeight="696.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser.DSUser">
    <children>
       <Label layoutX="366.0" layoutY="14.0" text="Danh sách User" textFill="#2031cd">
          <font>

@@ -4,10 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.ThemUser">
+<AnchorPane prefHeight="600.0" prefWidth="803.0" style="-fx-background-color: #ccd6e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser.ThemUser">
    <children>
       <Label layoutX="44.0" layoutY="113.0" text="Họ và tên">
          <font>
@@ -33,11 +35,11 @@
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <TextField fx:id="Hovaten" layoutX="164.0" layoutY="114.0" prefHeight="25.0" prefWidth="402.0">
+      <TextField fx:id="Hovaten" layoutX="164.0" layoutY="114.0" prefHeight="35.0" prefWidth="408.0">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextField fx:id="SDT" layoutX="164.0" layoutY="192.0" prefHeight="25.0" prefWidth="402.0">
+      <TextField fx:id="SDT" layoutX="164.0" layoutY="192.0" prefHeight="35.0" prefWidth="408.0">
          <font>
             <Font size="16.0" />
          </font></TextField>
@@ -63,7 +65,7 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <Label layoutX="42.0" layoutY="353.0" text="Username">
+      <Label layoutX="42.0" layoutY="354.0" text="Username">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -81,7 +83,7 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <Label layoutX="49.0" layoutY="432.0" text="Role">
+      <Label layoutX="46.0" layoutY="430.0" text="Role">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -90,7 +92,7 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <Button fx:id="buttonSummit" layoutX="319.0" layoutY="488.0" mnemonicParsing="false" onAction="#summit" prefHeight="39.0" prefWidth="165.0" style="-fx-background-color: #91bced;" text="Summit">
+      <Button fx:id="buttonSummit" layoutX="319.0" layoutY="514.0" mnemonicParsing="false" onAction="#summit" prefHeight="39.0" prefWidth="165.0" style="-fx-background-color: #91bced;" text="Summit">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
@@ -102,5 +104,14 @@
          <font>
             <Font size="16.0" />
          </font></RadioButton>
+      <Label fx:id="status" alignment="CENTER" layoutX="319.0" layoutY="482.0" prefHeight="17.0" prefWidth="165.0" text="Thêm user thành công" textFill="#f80000" visible="false" />
+      <Button fx:id="button_back" alignment="CENTER" layoutX="37.0" layoutY="24.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #ccd6e6;">
+         <graphic>
+            <ImageView fx:id="back_buttonimg" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../picture/back_icon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>

@@ -3,6 +3,8 @@ package com.example.projectquanlikiennghi.controller.controllerAdmin;
 import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.controller.controllerAdmin.PhanHoiKN.PhanhoiKN;
 import com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN.PheduyetKN;
+import com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN.DSKienNghi;
+import com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser.DSUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -94,7 +96,7 @@ public class AdminHomeController implements Initializable  {
     }
     public void KNView(ActionEvent e) throws IOException, SQLException {
         Main main = new Main();
-    FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/DSKiennghi.fxml"));
+    FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/QuanLyKN/DSKiennghi.fxml"));
         Parent pr = loader.load();
         borderPane.setCenter(pr);
 

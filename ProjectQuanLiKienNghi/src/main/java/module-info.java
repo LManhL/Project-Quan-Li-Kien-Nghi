@@ -28,4 +28,8 @@ module com.example.projectquanlikiennghi {
     opens com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN to javafx.fxml;
     exports com.example.projectquanlikiennghi.controller.controllerAdmin.PhanHoiKN;
     opens com.example.projectquanlikiennghi.controller.controllerAdmin.PhanHoiKN to javafx.fxml;
+    exports com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser;
+    opens com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser to javafx.fxml;
+    exports com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN;
+    opens com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN to javafx.fxml;
 }

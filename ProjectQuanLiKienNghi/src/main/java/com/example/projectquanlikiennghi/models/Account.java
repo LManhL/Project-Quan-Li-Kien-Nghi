@@ -108,6 +108,14 @@ public class Account {
         Username = username;
     }
 
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
     public int getSoKN() {
         return SoKN;
     }
