@@ -173,9 +173,16 @@ public class JdbcDAO {
         String sql = "UPDATE kiennghi SET Trangthai = " + stt + " WHERE (Ma_kien_nghi = '"+ maKn +"')"  ;
         st.executeUpdate(sql);
     }
+    public void themKN_Coquan(String maKN, String maCQ) throws SQLException {
+        Connection connection = ConnectDB();
+        Statement st = connection.createStatement();
+
+        String sql = "INSERT into kiennghi_coquan values ('" + maKN +"','"+maCQ+"')" ;
+        st.executeUpdate(sql);
+    }
     // them phan hoi kien nghi
     public void updatePhanHoi(KienNghi KN, String ngayphanhoi,
-                              String NDPH, String CQPH) throws SQLException{
+                              String NDPH) throws SQLException{
         String maKn = KN.getMa_kien_nghi();
         Connection connection = ConnectDB();
         Statement st = connection.createStatement();
@@ -301,7 +308,7 @@ public class JdbcDAO {
         st.executeUpdate(sql);
     }
     public String findUsernameByKN(String maKN) throws SQLException{
-        String query = "SELECT hoten FROM account acc, acc_kiennghi acc_kn WHERE acc_kn.Ma_kien_nghi = '"
+        String query = "SELECT  hoten FROM account acc, acc_kiennghi acc_kn WHERE acc_kn.Ma_kien_nghi = '"
                         + maKN + "' and acc.CCCD = acc_kn.CCCD";
         Connection connection = ConnectDB();
         ResultSet result = connection.createStatement().executeQuery(query);

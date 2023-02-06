@@ -44,9 +44,9 @@ public class PhanHoi {
     public void guiPhanhoi(ActionEvent e)throws IOException, SQLException {
         String ngayPH = Ngayphanhoi.getText();
         String ndph = Noidungphanhoi.getText();
-        String cqph = CQPH.getText();
 
-        repo.updatePhanHoi(kienNghi, ngayPH, ndph, cqph);
+        repo.updatePhanHoi(kienNghi, ngayPH, ndph);
+        repo.updateStatus(kienNghi,3);
         buttonSend.setVisible(false);
         status.setText("Phản hồi kiến nghị thành công");
         status.setVisible(true);
