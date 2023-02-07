@@ -41,8 +41,6 @@ public class ThemUser implements Initializable {
     @FXML
     private TextField password;
     @FXML
-    private TextField role;
-    @FXML
     private Button buttonSummit;
     @FXML
     private Label status;
@@ -65,10 +63,9 @@ public class ThemUser implements Initializable {
         String cccd = CCCD.getText();
         String usn = username.getText();
         String pass = password.getText();
-        String rl = role.getText();
 
         Account acc = new Account(hoten,sdt,diachi,gioitinh,namsinh,
-                                  cccd, usn, pass, rl);
+                                  cccd, usn, pass, "user");
         repo.InsertUser(acc);
         status.setVisible(true);
         buttonSummit.setVisible(false);

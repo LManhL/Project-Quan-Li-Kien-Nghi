@@ -83,16 +83,7 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <Label layoutX="46.0" layoutY="430.0" text="Role">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="role" layoutX="164.0" layoutY="433.0" prefHeight="25.0" prefWidth="133.0">
-         <font>
-            <Font size="16.0" />
-         </font></TextField>
-      <Button fx:id="buttonSummit" layoutX="319.0" layoutY="514.0" mnemonicParsing="false" onAction="#summit" prefHeight="39.0" prefWidth="165.0" style="-fx-background-color: #91bced;" text="Summit">
+      <Button fx:id="buttonSummit" layoutX="319.0" layoutY="471.0" mnemonicParsing="false" onAction="#summit" prefHeight="39.0" prefWidth="165.0" style="-fx-background-color: #91bced;" text="Summit">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>

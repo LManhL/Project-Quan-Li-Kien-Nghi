@@ -35,7 +35,7 @@
             </Pane>
          </children>
       </HBox>
-      <BorderPane fx:id="Bpane_phu" layoutX="150.0" prefHeight="733.0" prefWidth="1088.0" style="-fx-background-color: #ccd6e6;">
+      <BorderPane fx:id="Bpane_phu" layoutX="150.0" prefHeight="733.0" prefWidth="1088.0">
          <center>
             <ImageView fitHeight="325.0" fitWidth="329.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>

@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class XemInfoKN implements Initializable {
@@ -52,6 +53,8 @@ public class XemInfoKN implements Initializable {
     @FXML
     private TextField trangthai;
     @FXML
+    private TextField sophananh;
+    @FXML
     private ImageView back_buttonimg;
 
     private JdbcDAO repo = new JdbcDAO();
@@ -62,6 +65,12 @@ public class XemInfoKN implements Initializable {
     public void set_inf(KienNghi kn) throws SQLException {
         String s8 = String.valueOf(kn.getTrangthai());
         String name = repo.findUsernameByKN(kn.getMa_kien_nghi());
+        Integer Countsophananh=1;
+        List<KienNghi> listKienNghiGop=repo.getKienNghiGop(kn);
+        Countsophananh+=listKienNghiGop.size();
+        for(KienNghi value: listKienNghiGop){
+            name+=" , "+repo.findUsernameByKN(value.getMa_kien_nghi());
+        }
         nguoigui.setText(name);
         stt.setText("1");
         maKN.setText(kn.getMa_kien_nghi());
@@ -86,6 +95,7 @@ public class XemInfoKN implements Initializable {
         ngayphanhoi.setText(kn.getNgayphanhoi());
         String cqph = repo.findCoquanByKN(kn.getMa_kien_nghi());
         coquanphanhoi.setText(cqph);
+        sophananh.setText(String.valueOf(Countsophananh));
     }
 
 

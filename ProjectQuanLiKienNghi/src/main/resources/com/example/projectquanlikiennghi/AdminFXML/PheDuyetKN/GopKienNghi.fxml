@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="718.0" prefWidth="977.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN.GopKienNghiController">
+   <children>
+      <Label layoutX="319.0" layoutY="20.0" text="Gộp kiến nghị trùng nhau" textFill="#1f51e8">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="154.0" layoutY="69.0" text="Mã kiến nghị">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="MaKienNghiText" layoutX="153.0" layoutY="111.0" prefHeight="39.0" prefWidth="218.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnXem" layoutX="153.0" layoutY="183.0" mnemonicParsing="false" onAction="#Xem" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #91bced;" text="Xem">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="NoiDungText" editable="false" layoutX="153.0" layoutY="314.0" prefHeight="200.0" prefWidth="635.0" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <Label fx:id="lbNoiDung" layoutX="153.0" layoutY="265.0" text="Nội dung kiến nghị">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnGop" layoutX="153.0" layoutY="620.0" mnemonicParsing="false" onAction="#Gop" prefHeight="39.0" prefWidth="201.0" style="-fx-background-color: #91bced;" text="Gộp kiến nghị">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbTheLoai" layoutX="153.0" layoutY="549.0" prefHeight="27.0" prefWidth="78.0" text="Thể loại">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TheLoaiText" editable="false" layoutX="235.0" layoutY="543.0" prefHeight="39.0" prefWidth="218.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnHuy" layoutX="696.0" layoutY="620.0" mnemonicParsing="false" onAction="#Huy" prefHeight="39.0" prefWidth="92.0" style="-fx-background-color: #91bced;" text="Hủy">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -38,13 +38,7 @@ public class ThemKienNghiController implements Initializable {
         Boolean check_nd = false, check_theloai = true;
         String ma_kn = null;
         int duoc_chon = the_loai.getSelectionModel().getSelectedIndex();
-        int so_kn;
         JdbcDAO repo = new JdbcDAO();
-        try {
-             so_kn  = repo.count_KN() +1;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
         Collections.shuffle(listNumber);
         String randomNumber=String.valueOf(listNumber.get(0))+String.valueOf(listNumber.get(1))+String.valueOf(listNumber.get(2));
         switch (duoc_chon) {
@@ -81,7 +75,7 @@ public class ThemKienNghiController implements Initializable {
             if(noi_dung.getText().toString().length()<=50){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Lỗi");
-                alert.setContentText("Vui lòng nhập nội dung chi tiết hơn");
+                alert.setContentText("Vui lòng nhập nội dung chi tiết hơn 50 ký tự");
                 alert.show();
             }
             else{
