@@ -35,8 +35,6 @@ public class XemInfoUser implements Initializable {
     TextField sdt;
     @FXML
     TextField username;
-    @FXML
-    TextField password;
 
     @FXML
     Label status;
@@ -61,7 +59,6 @@ public class XemInfoUser implements Initializable {
         birth.setText(acc.getNamsinh());
         sdt.setText(acc.getSDT());
         username.setText(acc.getUsername());
-        password.setText(acc.getPassword());
     }
 
     public void back() throws IOException {

@@ -36,8 +36,6 @@ public class SuaInfoUserController implements Initializable {
     @FXML
     TextField username;
     @FXML
-    TextField password;
-    @FXML
     Button change;
 
     @FXML
@@ -63,7 +61,6 @@ public class SuaInfoUserController implements Initializable {
         birth.setText(acc.getNamsinh());
         sdt.setText(acc.getSDT());
         username.setText(acc.getUsername());
-        password.setText(acc.getPassword());
     }
 
     public void buttonChange() throws SQLException {
@@ -73,9 +70,8 @@ public class SuaInfoUserController implements Initializable {
         String namsinh = birth.getText();
         String phone_num = sdt.getText();
         String usm = username.getText();
-        String pass = password.getText();
 
-        repo.AdminchangeUserInf(hvt,gioitinh,address,namsinh,phone_num,cccd,usm,pass);
+        repo.AdminchangeUserInf(hvt,gioitinh,address,namsinh,phone_num,cccd,usm);
         status.setText("Cập nhật thành công");
         status.setVisible(true);
         change.setVisible(false);

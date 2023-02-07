@@ -15,6 +15,13 @@ public class CoQuanPhanHoi {
         Hotline = hotline;
     }
 
+    public CoQuanPhanHoi(String maCoQuan, String tenCoQuan, String diaChi, String hotline) {
+        MaCoQuan = maCoQuan;
+        TenCoQuan = tenCoQuan;
+        DiaChi = diaChi;
+        Hotline = hotline;
+    }
+
     public int getID() {
         return ID;
     }

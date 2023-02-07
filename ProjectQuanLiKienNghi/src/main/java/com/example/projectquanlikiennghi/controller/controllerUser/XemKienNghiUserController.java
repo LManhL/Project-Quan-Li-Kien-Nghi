@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,10 +22,10 @@ public class XemKienNghiUserController implements Initializable {
     private Label mkn_label;
 
     @FXML
-    private Label nd_label;
+    private TextArea noidung;
 
     @FXML
-    private Label ndph_label;
+    private TextArea phanhoi;
 
     @FXML
     private Label ng_label;
@@ -46,8 +47,8 @@ public class XemKienNghiUserController implements Initializable {
     public void set_inf(String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8){
         l_label.setText(s1);
         mkn_label.setText(s2);
-        nd_label.setText(s3);
-        ndph_label.setText(s4);
+        noidung.setText(s3);
+        phanhoi.setText(s4);
         ng_label.setText(s5);
         nph_label.setText(s6);
         stt_label.setText(s7);

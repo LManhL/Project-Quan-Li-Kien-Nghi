@@ -5,16 +5,22 @@ import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class PheduyetKN implements Initializable {
@@ -39,9 +45,13 @@ public class PheduyetKN implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        setItem(listKN);
+    }
 
+    public void setItem(List<KienNghi> list){
+        Main main =new Main();
         VBox vb = new VBox();
-        for (int i=0; i< listKN.size(); i++){
+        for (int i=0; i< list.size(); i++){
             FXMLLoader loader = new FXMLLoader(main.getClass().getResource("AdminFXML/PheDuyetKN/Pheduyet.fxml"));
             Parent pr = null;
 
@@ -55,13 +65,9 @@ public class PheduyetKN implements Initializable {
             vb.getChildren().add(pr);
 
             PheDuyet pdKN = (PheDuyet) loader.getController();
-            pdKN.loadKN(listKN.get(i));
+            pdKN.loadKN(list.get(i));
 
         }
-
-
         scrollPane.setContent(vb);
     }
-
-
 }

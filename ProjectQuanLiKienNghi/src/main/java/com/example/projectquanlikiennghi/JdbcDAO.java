@@ -2,20 +2,22 @@ package com.example.projectquanlikiennghi;
 
 
 import com.example.projectquanlikiennghi.models.Account;
+import com.example.projectquanlikiennghi.models.CoQuanPhanHoi;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 // load database
 public class JdbcDAO {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/quanlykiennghi";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/cnpm_vip";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "admin123";
+    private static final String DATABASE_PASSWORD = "ad9vl30860";
 
 
     private static final String LOAD_USER = "SELECT * FROM account";
@@ -89,7 +91,6 @@ public class JdbcDAO {
                     result.getObject(6).toString(), result.getObject(7).toString(),
                     Integer.valueOf(result.getObject(10).toString())));
         }
-        connection.close();
         return list;
     }
 
@@ -100,13 +101,13 @@ public class JdbcDAO {
 
         ResultSet result = connection.createStatement().executeQuery(LOAD_KN);
         while (result.next()) {
-            list.add(new KienNghi(list.size()+1,String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
-                    String.valueOf(result.getObject(3)), result.getInt(4),
-                    String.valueOf(result.getObject(5)), String.valueOf(result.getObject(6)),
-                    String.valueOf(result.getObject(7))));
-
+            if(String.valueOf(result.getObject(8)).equals("No")){
+                list.add(new KienNghi(list.size()+1,String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
+                        String.valueOf(result.getObject(3)), result.getInt(4),
+                        String.valueOf(result.getObject(5)), String.valueOf(result.getObject(6)),
+                        String.valueOf(result.getObject(7))));
+            }
         }
-        connection.close();
         return list;
     }
     // danh sach kien nghi chua phe duyet
@@ -122,7 +123,6 @@ public class JdbcDAO {
                     String.valueOf(result.getObject(7))));
 
         }
-        //connection.close();
         return list;
     }
     // danh sach kien nghi da phe duyet cho phan hoi
@@ -138,7 +138,6 @@ public class JdbcDAO {
                     String.valueOf(result.getObject(7))));
 
         }
-        //connection.close();
         return list;
     }
     // them user
@@ -162,7 +161,6 @@ public class JdbcDAO {
         System.out.println(sql);
         st.executeUpdate(sql);
         System.out.println("them user thanh cong");
-        connection.close();
     }
     // thay doi trang thai kien nghi
     public void updateStatus(KienNghi KN, int stt) throws SQLException {
@@ -188,7 +186,7 @@ public class JdbcDAO {
         Statement st = connection.createStatement();
 
         String sql = "UPDATE kiennghi SET Ngayphanhoi = " + "'"+ngayphanhoi+"'" +
-                     " , Noidungphanhoi = " + "'"+NDPH+"'"+
+                     " , Noidungphanhoi = " + "'"+NDPH+"'"+" , Trangthai = " + "'"+3+"'"+
                      " WHERE (Ma_kien_nghi = '"+ maKn +"')"  ;
         System.out.println(sql);
 
@@ -205,7 +203,7 @@ public class JdbcDAO {
         return map;
     }
     public Account loadUserInformation(String username,String password) throws SQLException {
-        String query = "SELECT * from account WHERE username= '"+username+"' AND "+ "password="+"'"+password+"'";
+        String query = "SELECT * from account WHERE username= '"+username+"'";
         Connection connection = ConnectDB();
         ResultSet result = connection.createStatement().executeQuery(query);
         result.next();
@@ -248,26 +246,42 @@ public class JdbcDAO {
     public void delete_kn(String str) throws SQLException {
         String queryDelKienNghi ="delete from kiennghi where Ma_kien_nghi='"+str+"'";
         String queryDelAccKienNghi="delete from acc_kiennghi where Ma_kien_nghi='"+str+"'";
+        /*String queryDelKienNghiCoquan="delete from kiennghi_coquan where Ma_kien_nghi='"+str+"'";*/
         Connection connection = ConnectDB();
         Statement st = connection.createStatement();
         System.out.println(queryDelKienNghi);
+        /*KienNghi KN=getKienNghi(str);
+        if(KN==null) return;
+        if(KN.getTrangthai()==2|| KN.getTrangthai()==3){
+            st.executeUpdate(queryDelKienNghiCoquan);
+        }*/
+        String username = getUsername(str);
+        if(username.equals("null")) return;
+        updateGiamSoKienNghi(username);
         st.executeUpdate(queryDelAccKienNghi);
         st.executeUpdate(queryDelKienNghi);
     }
-
+    public String getUsername(String maKN) throws SQLException {
+        String query = "SELECT  username FROM account acc, acc_kiennghi acc_kn WHERE acc_kn.Ma_kien_nghi = '"
+                + maKN + "' and acc.CCCD = acc_kn.CCCD";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        if(result.next()) return result.getObject(1).toString();
+        return "null";
+    }
     public  void add_kn_of_user(String name, String pass,String mkn, String ng,String nd,String loai) throws SQLException {
         Account acc = loadUserInformation(name,pass);
         String add_acc_kn ="insert into acc_kiennghi " +
                 "values ('"+acc.getCCCD()+"','"+mkn+"')";
         String add_kn ="insert into kiennghi " +
-                "values ('"+mkn+"','"+ng+"','"+nd+"','"+0+"','"+""+"',"+"NULL"+",'"+loai+"')";
+                "values ('"+mkn+"','"+ng+"','"+nd+"','"+0+"','"+""+"',"+"NULL"+",'"+loai+"','No',1)";
         Connection connection = ConnectDB();
         Statement st = connection.createStatement();
         System.out.println(add_kn);
         st.executeUpdate(add_kn);
         st.executeUpdate(add_acc_kn);
+        updateThemSoKienNghi(name);
 
-        connection.close();
     }
     public void changePassword(String username, String newPassword) throws SQLException {
         Connection connection = ConnectDB();
@@ -297,14 +311,14 @@ public class JdbcDAO {
     }
     public void AdminchangeUserInf(String hoten,String gender,String Address,
                                    String birth, String SDT, String cccd,
-                                   String username, String password) throws SQLException {
+                                   String username) throws SQLException {
         Connection connection = ConnectDB();
         Statement st = connection.createStatement();
 
         String sql = "UPDATE account SET Hoten = " + "'"+hoten +"' , "+"SDT = "+"'"+SDT +
-                     "' , Diachi = '" + Address + "' , Gioitinh =  '"+gender + "' , Namsinh = '" + birth +
-                     "' , username = '"+ username+ "', password = '"+password +
-                     "' WHERE CCCD = '"+ cccd +"'"  ;
+                     "' , Diachi = '" + Address + "' , Gioitinh =  '"+gender + "' , Namsinh = '" + birth +"'"+
+                     " WHERE CCCD = '"+ cccd +"'" ;
+        System.out.println(sql);
         st.executeUpdate(sql);
     }
     public String findUsernameByKN(String maKN) throws SQLException{
@@ -312,16 +326,16 @@ public class JdbcDAO {
                         + maKN + "' and acc.CCCD = acc_kn.CCCD";
         Connection connection = ConnectDB();
         ResultSet result = connection.createStatement().executeQuery(query);
-        result.next();
-        return result.getObject(1).toString();
+        if(result.next()) return result.getObject(1).toString();
+        return "null";
     }
     public String findCoquanByKN(String maKN) throws SQLException{
         String query = "SELECT TenCoQuan FROM coquanphanhoi cqph, kiennghi_coquan kn_cq WHERE kn_cq.Ma_kien_nghi  = '"
                 + maKN + "' and cqph.MaCoQuan = kn_cq.MaCoQuan";
         Connection connection = ConnectDB();
         ResultSet result = connection.createStatement().executeQuery(query);
-        result.next();
-        return result.getObject(1).toString();
+        if(result.next()) return result.getObject(1).toString();
+        return "null";
     }
     public void AdminchangeKNINF(String send_date, String content,
                                  String feedback, String feed_date, String maKN)throws SQLException{
@@ -332,5 +346,108 @@ public class JdbcDAO {
                 "' , Noidungphanhoi = '" + feedback + "' , Ngayphanhoi =  '"+feed_date +
                 "' WHERE Ma_kien_nghi = '"+ maKN +"'"  ;
         st.executeUpdate(sql);
+    }
+    public KienNghi getKienNghi(String maKN) throws SQLException {
+        String query = "SELECT * FROM kiennghi WHERE Ma_kien_nghi  = '"
+                + maKN+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        if(result.next()){
+            KienNghi kienNghi=new KienNghi(1,String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
+                    String.valueOf(result.getObject(3)), result.getInt(4),
+                    String.valueOf(result.getObject(5)), String.valueOf(result.getObject(6)),
+                    String.valueOf(result.getObject(7)));
+            return kienNghi;
+        }
+        return null;
+    }
+    public String findMaCoquanByKN(String maKN) throws SQLException{
+        String query = "SELECT MaCoQuan FROM kiennghi_coquan kn_cq WHERE kn_cq.Ma_kien_nghi  = '"
+                + maKN + "'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        result.next();
+        return result.getObject(1).toString();
+    }
+    public void GopKienNghiQuery(String MaKnDuocGop, String MaknBiGop) throws SQLException {
+        String UpdateMaKNGop= "UPDATE kiennghi SET Ma_kien_nghi_gop = '"+MaKnDuocGop+"' "+"WHERE Ma_kien_nghi = '"+MaknBiGop+"'";
+
+        Connection connection = ConnectDB();
+        connection.createStatement().executeUpdate(UpdateMaKNGop);
+        String MaCoQuan=findMaCoquanByKN(MaKnDuocGop);
+        themKN_Coquan(MaknBiGop,MaCoQuan);
+        KienNghi kienNghiDuocGop=getKienNghi(MaKnDuocGop);
+        KienNghi kienNghiBiGop=getKienNghi(MaknBiGop);
+
+        Integer count=getSoPhanAnh(kienNghiDuocGop.getMa_kien_nghi())+1;
+        String UpdateSophananh="UPDATE kiennghi SET Sophananh = '"+count+"' "+"WHERE Ma_kien_nghi = '"+kienNghiDuocGop.getMa_kien_nghi()+"'";
+
+        if(kienNghiDuocGop.getTrangthai()==3){
+            updatePhanHoi(kienNghiBiGop,kienNghiDuocGop.getNgayphanhoi(),kienNghiDuocGop.getNoidungphanhoi());
+            updateStatus(kienNghiBiGop,3);
+            connection.createStatement().executeUpdate(UpdateSophananh);
+        }
+        else{
+            updateStatus(kienNghiBiGop,2);
+            connection.createStatement().executeUpdate(UpdateSophananh);
+        }
+    }
+    public List<KienNghi> getKienNghiGop(KienNghi kienNghi) throws SQLException {
+        String QueryloadKienNghiGop="SELECT * FROM kiennghi WHERE Ma_kien_nghi_gop = '"+kienNghi.getMa_kien_nghi()+"'";
+        List<KienNghi> list = new ArrayList<>();
+        Connection connection = ConnectDB();
+
+        ResultSet result = connection.createStatement().executeQuery(QueryloadKienNghiGop);
+        while (result.next()) {
+            list.add(new KienNghi(list.size()+1,String.valueOf(result.getObject(1)), String.valueOf(result.getObject(2)),
+                    String.valueOf(result.getObject(3)), result.getInt(4),
+                    String.valueOf(result.getObject(5)), String.valueOf(result.getObject(6)),
+                    String.valueOf(result.getObject(7))));
+        }
+        return list;
+    }
+    public void updatePhanHoiKienNghiGop(KienNghi kienNghi, String ngayphanhoi, String NDPH) throws SQLException {
+        List<KienNghi> list=getKienNghiGop(kienNghi);
+        for(KienNghi kn:list){
+            updatePhanHoi(kn, ngayphanhoi, NDPH);
+        }
+    }
+    public void updateThemSoKienNghi(String username) throws SQLException {
+        String query = "SELECT * from account WHERE username= "+"'"+username+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        result.next();
+        Integer nextKNnum=result.getInt(10)+1;
+        String UpdateState = "UPDATE account SET KN_num = '"+nextKNnum+"' "+"WHERE username = '"+username+"'";
+        connection.createStatement().executeUpdate(UpdateState);
+    }
+    public void updateGiamSoKienNghi(String username) throws SQLException {
+        String query = "SELECT * from account WHERE username= "+"'"+username+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        result.next();
+        Integer nextKNnum=result.getInt(10)-1;
+        String UpdateState = "UPDATE account SET KN_num = '"+nextKNnum+"' "+"WHERE username = '"+username+"'";
+        connection.createStatement().executeUpdate(UpdateState);
+    }
+    public Integer getSoPhanAnh(String maKN) throws SQLException {
+        String query = "SELECT Sophananh FROM kiennghi WHERE Ma_kien_nghi  = '"
+                + maKN+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        if(result.next()){
+             return result.getInt(1);
+        }
+        return null;
+    }
+    public CoQuanPhanHoi getCoQuanPhanHoiByMaCQ(String MaCQ) throws SQLException {
+        String query = "SELECT * from coquanphanhoi WHERE MaCoQuan= "+"'"+MaCQ+"'";
+        Connection connection = ConnectDB();
+        ResultSet result = connection.createStatement().executeQuery(query);
+        if(result.next()){
+            return new CoQuanPhanHoi(String.valueOf(result.getObject(1)),String.valueOf(result.getObject(2)),
+                    String.valueOf(result.getObject(3)),String.valueOf(result.getObject(4)));
+        }
+        return null;
     }
 }

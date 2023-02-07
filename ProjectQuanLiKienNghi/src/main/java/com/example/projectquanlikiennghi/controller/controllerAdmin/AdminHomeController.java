@@ -73,6 +73,8 @@ public class AdminHomeController implements Initializable  {
 
     public void adminLogout(ActionEvent event) throws IOException {
         Main m = new Main();
+        Main.globalState.setWidth(597);
+        Main.globalState.setHeight(459);
         m.changeScene("LoginFXML/login.fxml");
     }
 

@@ -9,6 +9,9 @@ public class KienNghi {
     private String Noidungphanhoi;
     private String Ngayphanhoi;
     private String Loai;
+    private String Ma_kien_nghi_gop;
+    private Integer Sophananh;
+
 
     public KienNghi(int stt,String ma_kien_nghi, String ngaygui, String noidung, int trangthai,
                       String noidungphanhoi, String ngayphanhoi, String loai) {
@@ -30,6 +33,22 @@ public class KienNghi {
 
     public String getMa_kien_nghi() {
         return Ma_kien_nghi;
+    }
+
+    public String getMa_kien_nghi_gop() {
+        return Ma_kien_nghi_gop;
+    }
+
+    public void setMa_kien_nghi_gop(String ma_kien_nghi_gop) {
+        Ma_kien_nghi_gop = ma_kien_nghi_gop;
+    }
+
+    public Integer getSophananh() {
+        return Sophananh;
+    }
+
+    public void setSophananh(Integer sophananh) {
+        Sophananh = sophananh;
     }
 
     public void setMa_kien_nghi(String ma_kien_nghi) {

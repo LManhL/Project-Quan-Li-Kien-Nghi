@@ -5,8 +5,11 @@ import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController;
 import com.example.projectquanlikiennghi.controller.controllerUser.userInformationController;
 import com.example.projectquanlikiennghi.models.Account;
+import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -48,6 +51,8 @@ public class DSUser implements Initializable {
     TableColumn<Account, Integer> SoKN = new TableColumn<>("Số KN");
     @FXML
     Button buttonAddUser = new Button();
+    @FXML
+    TextField filterField;
 
     JdbcDAO repo = new JdbcDAO();
 
@@ -76,7 +81,47 @@ public class DSUser implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        table.setItems(list);
+        FilteredList<Account> filteredData = new FilteredList<>(list, b->true);
+
+        filterField.textProperty().addListener((observable,oldValue,newValue)->{
+            filteredData.setPredicate(account -> {
+                if(newValue==null || newValue.isEmpty()){
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if(account.getCCCD().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                    return true;
+                }
+                else if(account.getDiachi().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                    return true;
+                }
+                else if(account.getUsername().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                    return true;
+                }
+                else if(account.getNamsinh().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                    return true;
+                }
+                else if(String.valueOf(account.getSoKN()).indexOf(lowerCaseFilter)!=-1){
+                    return true;
+                }
+                else if(account.getHovaten().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                    return true;
+                }
+                else if(account.getGioitinh().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                    return true;
+                }
+                else if(account.getSDT().toLowerCase().indexOf(lowerCaseFilter)!=-1){
+                    return true;
+                }
+                else
+                    return false;
+            });
+        });
+
+        SortedList<Account> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(table.comparatorProperty());
+
+        table.setItems(sortedData);
         //table.getColumns().addAll(STT,Hovaten,SDT,Diachi,Gioitinh,Namsinh,CCCD,Username,SoKN );
 
 

@@ -11,12 +11,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="995.0" style="-fx-background-color: #ccd6e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser.SuaInfoUserController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="1032.0" style="-fx-background-color: #ccd6e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser.SuaInfoUserController">
     <children>
-        <GridPane alignment="BASELINE_LEFT" gridLinesVisible="true" hgap="1.0" layoutX="53.0" layoutY="65.0" prefHeight="456.0" prefWidth="884.0" style="-fx-background-color: #b3d1f5;" vgap="1.0">
+        <GridPane alignment="BASELINE_LEFT" gridLinesVisible="true" hgap="1.0" layoutX="71.0" layoutY="98.0" prefHeight="347.0" prefWidth="759.0" style="-fx-background-color: #b3d1f5;" vgap="1.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="221.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="768.0" minWidth="0.0" prefWidth="768.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="144.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="768.0" minWidth="0.0" prefWidth="628.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
@@ -25,88 +25,76 @@
                 <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="141.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="122.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label alignment="CENTER" prefHeight="30.0" prefWidth="120.0" text="Họ và tên" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font></Label>
                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="120.0" text="Giới tính" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font></Label>
                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="120.0" text="Địa chỉ" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font></Label>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="120.0" text="Ngày sinh" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="120.0" text="Năm sinh" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font></Label>
                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="33.0" prefWidth="159.0" text="Số điện thoại" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font></Label>
-            <TextField fx:id="hoten" prefHeight="77.0" prefWidth="735.0" GridPane.columnIndex="1">
+            <TextField fx:id="hoten" prefHeight="82.0" prefWidth="638.0" GridPane.columnIndex="1">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font></TextField>
-            <TextField fx:id="sdt" prefHeight="94.0" prefWidth="758.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="sdt" editable="false" prefHeight="102.0" prefWidth="715.0" style="-fx-background-color: #c3c7d9;" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font></TextField>
-            <TextField fx:id="birth" prefHeight="78.0" prefWidth="758.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="birth" prefHeight="108.0" prefWidth="715.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font></TextField>
-            <TextField fx:id="diachi" prefHeight="93.0" prefWidth="758.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="diachi" prefHeight="87.0" prefWidth="715.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font></TextField>
-            <TextField fx:id="gender" prefHeight="87.0" prefWidth="758.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="gender" prefHeight="91.0" prefWidth="715.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font></TextField>
             <Label alignment="CENTER" prefHeight="47.0" prefWidth="191.0" text="username" textAlignment="CENTER" GridPane.rowIndex="5">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="54.0" prefWidth="186.0" text="password" GridPane.rowIndex="6">
+            <TextField fx:id="username" editable="false" prefHeight="94.0" prefWidth="715.0" style="-fx-background-color: #c3c7d9;" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="username" prefHeight="67.0" prefWidth="735.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <font>
-                  <Font size="14.0" />
-               </font></TextField>
-            <TextField fx:id="password" prefHeight="71.0" prefWidth="735.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-               <font>
-                  <Font size="14.0" />
+                  <Font size="16.0" />
                </font></TextField>
             </children>
         </GridPane>
-      <Button fx:id="change" layoutX="447.0" layoutY="601.0" mnemonicParsing="false" onAction="#buttonChange" text="Thay đổi">
+      <Button fx:id="change" layoutX="356.0" layoutY="471.0" mnemonicParsing="false" onAction="#buttonChange" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: #91bced;" text="Thay đổi">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
       <Label fx:id="status" layoutX="367.0" layoutY="547.0" prefHeight="35.0" prefWidth="256.0" text="Label" textFill="#f50101" visible="false" />
-      <Button fx:id="button_back" layoutX="27.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #ccd6e6;">
-         <graphic>
-            <ImageView fx:id="back_buttonimg" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../picture/back_icon.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Label layoutX="352.0" layoutY="22.0" text="Sửa nội dung user" textFill="#001df8">
+      <Button fx:id="button_back" layoutX="27.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #ccd6e6;" />
+      <Label layoutX="331.0" layoutY="34.0" text="Sửa nội dung user" textFill="#001df8">
          <font>
-            <Font name="System Bold" size="30.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Label>
+      <ImageView fx:id="back_buttonimg" fitHeight="40.0" fitWidth="40.0" layoutX="71.0" layoutY="44.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../picture/back_icon.png" />
+         </image>
+      </ImageView>
 
     </children>
 </Pane>
