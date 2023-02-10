@@ -23,6 +23,7 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class DSUser implements Initializable {
@@ -170,13 +171,26 @@ public class DSUser implements Initializable {
             public void handle(ActionEvent event) throws RuntimeException {
                 Account acc= table.getSelectionModel().getSelectedItem();
                 try {
-                    repo.delete_user(acc.getCCCD());
-                    System.out.println("xoa user thanh cong");
-                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyUser/DSUser.fxml"));
-                    Parent p = loader.load();
 
-                    AdminHomeController.global_pane.setCenter(p);
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Xác nhận ");
+                    alert.setContentText("Xác nhận xóa người dùng này");
 
+                    ButtonType buttonTypeYes = new ButtonType("Xác nhận", ButtonBar.ButtonData.YES);
+                    ButtonType buttonTypeNo = new ButtonType("Hủy", ButtonBar.ButtonData.NO);
+                    alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+                    Optional<ButtonType> result = alert.showAndWait();
+
+                    if (result.get() == buttonTypeYes) {
+                        repo.delete_user(acc.getCCCD());
+                        System.out.println("xoa user thanh cong");
+                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyUser/DSUser.fxml"));
+                        Parent p = loader.load();
+
+                        AdminHomeController.global_pane.setCenter(p);
+                    } else {
+                        // nothing
+                    }
 
                 } catch (SQLException | IOException e) {
                     System.out.println("xoa user that bai");

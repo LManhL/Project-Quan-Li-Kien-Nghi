@@ -9,15 +9,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ThemUser implements Initializable {
@@ -53,23 +51,46 @@ public class ThemUser implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {}
 
     public void summit(ActionEvent event) throws IOException, SQLException {
-        String hoten = Hovaten.getText();
-        String sdt = SDT.getText();
-        String diachi = Diachi.getText();
-        String gioitinh ;
-        if (Men.isSelected()) { gioitinh = "Nam"; }
-        else gioitinh = "Nữ";
-        String namsinh = Namsinh.getText();
-        String cccd = CCCD.getText();
-        String usn = username.getText();
-        String pass = password.getText();
 
-        Account acc = new Account(hoten,sdt,diachi,gioitinh,namsinh,
-                                  cccd, usn, pass, "user");
-        repo.InsertUser(acc);
-        status.setVisible(true);
-        buttonSummit.setVisible(false);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Xác nhận ");
+        alert.setContentText("Xác nhận thêm người dùng");
 
+        ButtonType buttonTypeYes = new ButtonType("Xác nhận", ButtonBar.ButtonData.YES);
+        ButtonType buttonTypeNo = new ButtonType("Hủy", ButtonBar.ButtonData.NO);
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == buttonTypeYes) {
+            String hoten = Hovaten.getText();
+            String sdt = SDT.getText();
+            String diachi = Diachi.getText();
+            String gioitinh;
+            if (Men.isSelected()) {
+                gioitinh = "Nam";
+            } else gioitinh = "Nữ";
+            String namsinh = Namsinh.getText();
+            String cccd = CCCD.getText();
+            String usn = username.getText();
+            String pass = password.getText();
+
+            try {
+                Integer d = Integer.parseInt(namsinh);
+            } catch (NumberFormatException nfe) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Lỗi");
+                alert.setContentText("Năm sinh không đúng định dạng");
+                alert.show();
+            }
+
+            Account acc = new Account(hoten, sdt, diachi, gioitinh, namsinh,
+                    cccd, usn, pass, "user");
+            repo.InsertUser(acc);
+            status.setVisible(true);
+            buttonSummit.setVisible(false);
+        }else {
+            // nothing
+        }
     }
     public void back() throws IOException {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyUser/DSUser.fxml"));

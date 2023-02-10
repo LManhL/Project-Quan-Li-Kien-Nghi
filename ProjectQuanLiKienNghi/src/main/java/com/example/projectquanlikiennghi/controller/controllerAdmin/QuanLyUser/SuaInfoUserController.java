@@ -8,14 +8,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class SuaInfoUserController implements Initializable {
@@ -61,17 +60,39 @@ public class SuaInfoUserController implements Initializable {
     }
 
     public void buttonChange() throws SQLException {
-        String hvt = hoten.getText();
-        String gioitinh = gender.getText();
-        String address = diachi.getText();
-        String namsinh = birth.getText();
-        String phone_num = sdt.getText();
-        String usm = username.getText();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Xác nhận ");
+        alert.setContentText("Xác nhận cập nhật");
 
-        repo.AdminchangeUserInf(hvt,gioitinh,address,namsinh,phone_num,cccd,usm);
-        status.setText("Cập nhật thành công");
-        status.setVisible(true);
-        change.setVisible(false);
+        ButtonType buttonTypeYes = new ButtonType("Xác nhận", ButtonBar.ButtonData.YES);
+        ButtonType buttonTypeNo = new ButtonType("Hủy", ButtonBar.ButtonData.NO);
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == buttonTypeYes) {
+            String hvt = hoten.getText();
+            String gioitinh = gender.getText();
+            String address = diachi.getText();
+            String namsinh = birth.getText();
+            String phone_num = sdt.getText();
+            String usm = username.getText();
+
+            try {
+                Integer d = Integer.parseInt(namsinh);
+            } catch (NumberFormatException nfe) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Lỗi");
+                alert.setContentText("Năm sinh không đúng định dạng");
+                alert.show();
+            }
+
+            repo.AdminchangeUserInf(hvt, gioitinh, address, namsinh, phone_num, cccd, usm);
+            status.setText("Cập nhật thành công");
+            status.setVisible(true);
+            change.setVisible(false);
+        } else{
+
+        }
     }
 
     public void back() throws IOException {

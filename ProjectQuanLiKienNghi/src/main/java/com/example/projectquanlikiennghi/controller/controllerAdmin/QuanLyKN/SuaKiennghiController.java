@@ -9,15 +9,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class SuaKiennghiController implements Initializable {
@@ -63,12 +62,15 @@ public class SuaKiennghiController implements Initializable {
 
     private JdbcDAO repo = new JdbcDAO();
 
+    private int tt;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
     public void set_inf(KienNghi kn) throws SQLException {
         String s8 = String.valueOf(kn.getTrangthai());
+        this.tt = Integer.valueOf(s8);
 
         String name = repo.findUsernameByKN(kn.getMa_kien_nghi());
         nguoigui.setText(name);
@@ -89,24 +91,46 @@ public class SuaKiennghiController implements Initializable {
             s8="Đã phản hồi";
         }
         else;
+
         trangthai.setText(s8);
         phanhoi.setText(kn.getNoidungphanhoi());
         ngayphanhoi.setText(kn.getNgayphanhoi());
 
         String cqph = repo.findCoquanByKN(kn.getMa_kien_nghi());
         coquanphanhoi.setText(cqph);
+        if(!(this.tt ==3)){
+            phanhoi.setEditable(false);
+            //phanhoi.setStyle("-fx-background-color: #c3c7d9;");
+        }
     }
 
     public void buttonChange() throws SQLException {
-        String send_date = ngaygui.getText();
-        String content = noidung.getText();
-        String feedback = phanhoi.getText();
-        String feeddate = ngayphanhoi.getText();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Xác nhận ");
+        alert.setContentText("Xác nhận cập nhật");
 
-        repo.AdminchangeKNINF(send_date, content, feedback, feeddate, maKN.getText());
-        status.setText("Cập nhật thành công");
-        status.setVisible(true);
-        change.setVisible(false);
+        ButtonType buttonTypeYes = new ButtonType("Xác nhận", ButtonBar.ButtonData.YES);
+        ButtonType buttonTypeNo = new ButtonType("Hủy", ButtonBar.ButtonData.NO);
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == buttonTypeYes){
+            String send_date = ngaygui.getText();
+            String content = noidung.getText();
+            String feedback = phanhoi.getText();
+            String feeddate = ngayphanhoi.getText();
+
+
+
+            repo.AdminchangeKNINF(content, feedback, maKN.getText(), this.tt);
+            status.setText("Cập nhật thành công");
+            status.setVisible(true);
+            change.setVisible(false);
+
+        }
+        else{
+            // do nothing
+        }
 
     }
 

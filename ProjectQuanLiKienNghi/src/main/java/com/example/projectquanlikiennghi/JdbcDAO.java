@@ -337,14 +337,20 @@ public class JdbcDAO {
         if(result.next()) return result.getObject(1).toString();
         return "null";
     }
-    public void AdminchangeKNINF(String send_date, String content,
-                                 String feedback, String feed_date, String maKN)throws SQLException{
+    public void AdminchangeKNINF(String content,
+                                 String feedback, String maKN, int s8)throws SQLException{
         Connection connection = ConnectDB();
         Statement st = connection.createStatement();
 
-        String sql = "UPDATE kiennghi SET Ngaygui = '"+send_date +"' , "+"Noidung = '"+content +
-                "' , Noidungphanhoi = '" + feedback + "' , Ngayphanhoi =  '"+feed_date +
-                "' WHERE Ma_kien_nghi = '"+ maKN +"'"  ;
+        String sql = "";
+        if (s8 == 3){
+            sql = "UPDATE kiennghi SET Noidung = '"+content +
+                    "' , Noidungphanhoi = '" + feedback + " ' WHERE Ma_kien_nghi = '"+ maKN +"'"  ;
+        } else {
+            sql = "UPDATE kiennghi SET Noidung = '"+content +
+                     "' WHERE Ma_kien_nghi = '"+ maKN +"'"  ;
+        }
+
         st.executeUpdate(sql);
     }
     public KienNghi getKienNghi(String maKN) throws SQLException {
