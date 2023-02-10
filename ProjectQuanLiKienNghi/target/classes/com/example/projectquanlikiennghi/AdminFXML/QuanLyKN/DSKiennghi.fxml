@@ -3,20 +3,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="707.0" prefWidth="928.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN.DSKienNghi">
-   <children>
+<?import java.net.URL?>
+<AnchorPane prefHeight="711.0" prefWidth="933.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN.DSKienNghi">
+    <stylesheets>
+        <URL value="@DSKN.css" />
+    </stylesheets>
+    <children>
       <Label layoutX="323.0" layoutY="14.0" prefHeight="40.0" prefWidth="290.0" text="Danh sách kiến nghị" textFill="#271ad3">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <TableView fx:id="table" layoutX="7.0" layoutY="61.0" prefHeight="584.0" prefWidth="908.0">
+      <TableView fx:id="table" layoutX="8.0" layoutY="115.0" prefHeight="553.0" prefWidth="917.0">
         <columns>
-          <TableColumn fx:id="STT" prefWidth="46.0" style="-fx-font-size: 14;" text="STT" />
-          <TableColumn fx:id="Ma_kien_nghi" prefWidth="62.0" style="-fx-font-size: 14;" text="Mã KN" />
+          <TableColumn fx:id="STT" prefWidth="39.0" style="-fx-font-size: 14;" text="STT" />
+          <TableColumn fx:id="Ma_kien_nghi" prefWidth="69.0" style="-fx-font-size: 14;" text="Mã KN" />
             <TableColumn fx:id="Ngaygui" prefWidth="110.0" style="-fx-font-size: 14;" text="Ngày gửi" />
             <TableColumn fx:id="Noidung" minWidth="4.0" prefWidth="155.0" style="-fx-font-size: 14;" text="Nội dung" />
             <TableColumn fx:id="Trangthai" minWidth="0.0" prefWidth="119.0" style="-fx-font-size: 14;" text="Trạng thái" />
@@ -25,5 +32,20 @@
             <TableColumn fx:id="Loai" minWidth="2.0" prefWidth="173.0" style="-fx-font-size: 14;" text="Loại" />
         </columns>
       </TableView>
+      <Label layoutX="16.0" layoutY="65.0" text="Tìm kiếm" textFill="#040f32">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="filterField" layoutX="167.0" layoutY="61.0" prefHeight="39.0" prefWidth="290.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="132.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../picture/search_icon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -13,23 +14,26 @@
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="766.0" prefWidth="1038.0" style="-fx-background-color: #ccd6e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN.XemInfoKN">
+    <stylesheets>
+        <URL value="@Xem_SuaKN.css" />
+    </stylesheets>
     <children>
-        <GridPane alignment="BASELINE_LEFT" gridLinesVisible="true" hgap="1.0" layoutX="17.0" layoutY="87.0" prefHeight="444.0" prefWidth="850.0" style="-fx-background-color: #b3d1f5;" vgap="1.0">
+        <GridPane fx:id="gridpane" alignment="BASELINE_LEFT" gridLinesVisible="true" hgap="1.0" layoutX="17.0" layoutY="87.0" prefHeight="465.0" prefWidth="850.0" style="-fx-background-color: #b3d1f5;" vgap="1.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="211.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="768.0" minWidth="0.0" prefWidth="643.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="97.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="141.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="122.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="192.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="160.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="141.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="122.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="126.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label alignment="CENTER" prefHeight="30.0" prefWidth="120.0" text="STT" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -52,10 +56,6 @@
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font></Label>
-                <TextField fx:id="stt" editable="false" prefHeight="10.0" prefWidth="660.0" GridPane.columnIndex="1">
-                    <font>
-                        <Font size="14.0" />
-                    </font></TextField>
                 <TextField fx:id="trangthai" editable="false" prefHeight="94.0" prefWidth="758.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                     <font>
                         <Font size="14.0" />
@@ -64,7 +64,7 @@
                     <font>
                         <Font size="14.0" />
                     </font></TextField>
-                <TextField fx:id="maKN" editable="false" prefHeight="18.0" prefWidth="654.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField fx:id="maKN" editable="false" prefHeight="49.0" prefWidth="635.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <font>
                         <Font size="14.0" />
                     </font></TextField>
@@ -92,7 +92,7 @@
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
-                <TextField fx:id="nguoigui" editable="false" prefHeight="54.0" prefWidth="715.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <TextField fx:id="nguoigui" editable="false" prefHeight="54.0" prefWidth="635.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <font>
                         <Font size="14.0" />
                     </font></TextField>
@@ -119,6 +119,11 @@
                <font>
                   <Font size="14.0" />
                </font>
+            </TextField>
+                <TextField fx:id="stt" editable="false" prefHeight="11.0" prefWidth="635.0" GridPane.columnIndex="1">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
             </TextField>
             </children>
         </GridPane>
