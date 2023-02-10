@@ -11,11 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,31 +21,31 @@ import java.util.ResourceBundle;
 public class SuaInfoUserController implements Initializable {
 
     @FXML
-    TextField hoten;
+    private TextField hoten;
     @FXML
-    TextField gender;
+    private TextField gender;
     @FXML
-    TextField diachi;
+    private TextField diachi;
     @FXML
-    TextField birth;
+    private TextField birth;
     @FXML
-    TextField sdt;
+    private TextField sdt;
     @FXML
-    TextField username;
+    private TextField username;
     @FXML
-    Button change;
+    private Button change;
 
     @FXML
-    Label status;
+    private Label status;
 
     @FXML
-    Button button_back;
-    JdbcDAO repo = new JdbcDAO();
+    private Button button_back;
+    private JdbcDAO repo = new JdbcDAO();
 
-    String cccd;
+    private String cccd;
 
     @FXML
-    ImageView back_buttonimg;
+    private ImageView back_buttonimg;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}

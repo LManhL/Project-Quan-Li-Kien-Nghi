@@ -3,7 +3,6 @@ package com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN;
 import com.example.projectquanlikiennghi.JdbcDAO;
 import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController;
-import com.example.projectquanlikiennghi.controller.controllerUser.UserHomeController;
 import com.example.projectquanlikiennghi.models.CoQuanPhanHoi;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.event.ActionEvent;
@@ -66,23 +65,23 @@ public class ThietLapThongTinController implements Initializable {
     @FXML
     private MenuItem cq13;
     @FXML
-    Label lbdiachi;
+    private Label lbdiachi;
     @FXML
-    Label lbhotline;
+    private Label lbhotline;
     @FXML
-    TextField hotline;
+    private TextField hotline;
     @FXML
-    TextField diachi;
+    private TextField diachi;
 
-    JdbcDAO repo = new JdbcDAO();
-    KienNghi kienNghi;
+    private JdbcDAO repo = new JdbcDAO();
+    private KienNghi kienNghi;
     private String maCQ;
     public void handleVisible(boolean check) throws SQLException {
         lbdiachi.setVisible(check);
         lbhotline.setVisible(check);
         hotline.setVisible(check);
         diachi.setVisible(check);
-        if(check==true){
+        if(check){
             CoQuanPhanHoi coQuanPhanHoi=repo.getCoQuanPhanHoiByMaCQ(maCQ);
             diachi.setText(coQuanPhanHoi.getDiaChi());
             hotline.setText(coQuanPhanHoi.getHotline());

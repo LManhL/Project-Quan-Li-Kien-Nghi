@@ -3,9 +3,7 @@ package com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser;
 import com.example.projectquanlikiennghi.JdbcDAO;
 import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController;
-import com.example.projectquanlikiennghi.controller.controllerUser.userInformationController;
 import com.example.projectquanlikiennghi.models.Account;
-import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -32,31 +30,31 @@ public class DSUser implements Initializable {
     @FXML
     private TableView<Account> table = new TableView<Account>();
     @FXML
-    TableColumn<Account, Integer> STT = new TableColumn<Account, Integer>("STT");
+    private TableColumn<Account, Integer> STT = new TableColumn<Account, Integer>("STT");
     @FXML
-    TableColumn<Account, String> Hovaten = new TableColumn<Account, String>("Họ và tên");
+    private TableColumn<Account, String> Hovaten = new TableColumn<Account, String>("Họ và tên");
     @FXML
-    TableColumn<Account, String> SDT = new TableColumn<>("SDT");
+    private TableColumn<Account, String> SDT = new TableColumn<>("SDT");
     @FXML
-    TableColumn<Account, String> Diachi = new TableColumn<>("Địa chỉ");
+    private TableColumn<Account, String> Diachi = new TableColumn<>("Địa chỉ");
     @FXML
-    TableColumn<Account, String> Gioitinh = new TableColumn<>("Giới tính");
+    private TableColumn<Account, String> Gioitinh = new TableColumn<>("Giới tính");
     @FXML
-    TableColumn<Account, String> Namsinh = new TableColumn<>("Năm sinh");
+    private TableColumn<Account, String> Namsinh = new TableColumn<>("Năm sinh");
     @FXML
-    TableColumn<Account, String> CCCD = new TableColumn<Account, String>("CCCD");
+    private TableColumn<Account, String> CCCD = new TableColumn<Account, String>("CCCD");
     @FXML
-    TableColumn<Account, String> Username = new TableColumn<>("Username");
+    private TableColumn<Account, String> Username = new TableColumn<>("Username");
     @FXML
-    TableColumn<Account, Integer> SoKN = new TableColumn<>("Số KN");
+    private TableColumn<Account, Integer> SoKN = new TableColumn<>("Số KN");
     @FXML
-    Button buttonAddUser = new Button();
+    private Button buttonAddUser = new Button();
     @FXML
-    TextField filterField;
+    private TextField filterField;
 
-    JdbcDAO repo = new JdbcDAO();
+    private JdbcDAO repo = new JdbcDAO();
 
-    ObservableList<Account> list = FXCollections.observableArrayList();
+    private ObservableList<Account> list = FXCollections.observableArrayList();
 
     private ContextMenu contextMenu;
     private MenuItem mi_xem;

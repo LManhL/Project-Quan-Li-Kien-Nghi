@@ -3,7 +3,6 @@ package com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN;
 import com.example.projectquanlikiennghi.JdbcDAO;
 import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController;
-import com.example.projectquanlikiennghi.controller.controllerUser.UserHomeController;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

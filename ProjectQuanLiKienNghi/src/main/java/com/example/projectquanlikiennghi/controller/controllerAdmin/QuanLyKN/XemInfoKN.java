@@ -3,14 +3,12 @@ package com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN;
 import com.example.projectquanlikiennghi.JdbcDAO;
 import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController;
-import com.example.projectquanlikiennghi.models.Account;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -89,7 +87,6 @@ public class XemInfoKN implements Initializable {
         else if(s8.equals("3")){
             s8="Đã phản hồi";
         }
-        else;
         trangthai.setText(s8);
         phanhoi.setText(kn.getNoidungphanhoi());
         ngayphanhoi.setText(kn.getNgayphanhoi());

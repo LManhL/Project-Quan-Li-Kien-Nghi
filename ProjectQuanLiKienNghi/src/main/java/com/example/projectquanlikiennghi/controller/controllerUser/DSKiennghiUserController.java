@@ -87,7 +87,6 @@ public class DSKiennghiUserController implements Initializable {
             else if(trangThai==3){
                 kienNghi.setLoai("Đã phản hồi");
             }
-            else;
         }
 
         bang.setItems(listofuser);

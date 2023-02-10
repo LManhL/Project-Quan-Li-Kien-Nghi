@@ -22,7 +22,7 @@ public class changeUserInformationController {
     @FXML
     void Confirm(ActionEvent event) throws SQLException, IOException {
         String Address = txtAddress.getText().toString();
-        String SDT = txtPhoneNumber.getText().toString().replaceAll("\\s", "");;
+        String SDT = txtPhoneNumber.getText().toString().replaceAll("\\s", "");
         if(Address.isEmpty() || SDT.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Chưa nhập đủ thông tin");

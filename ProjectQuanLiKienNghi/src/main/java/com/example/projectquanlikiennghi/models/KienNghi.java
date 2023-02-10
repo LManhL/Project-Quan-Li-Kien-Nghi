@@ -107,7 +107,7 @@ public class KienNghi {
         return STT;
     }
 
-    public void setSTT(int STT) {
-        this.STT = STT;
+    public void setSTT(int stt) {
+        this.STT = stt;
     }
 }

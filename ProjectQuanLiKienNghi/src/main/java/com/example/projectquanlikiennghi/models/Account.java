@@ -13,29 +13,29 @@ public class Account {
     private String role;
     private int SoKN;
 
-    public Account(int ID, String hovaten, String SDT, String diachi, String gioitinh,
-                   String namsinh, String CCCD, String username,int sokn) {
-        this.ID = ID;
+    public Account(int id, String hovaten, String sdt, String diachi, String gioitinh,
+                   String namsinh, String cccd, String username,int sokn) {
+        this.ID = id;
         this.Hovaten = hovaten;
-        this.SDT = SDT;
+        this.SDT = sdt;
         this.Diachi = diachi;
         this.Gioitinh = gioitinh;
         this.Namsinh = namsinh;
-        this.CCCD = CCCD;
+        this.CCCD = cccd;
         this.Username = username;
         this.SoKN = sokn;
     }
-    public Account(String hovaten, String SDT, String diachi, String gioitinh,
-                   String namsinh, String CCCD, String username, String password, String role) {
+    public Account(String hovaten, String sdt, String diachi, String gioitinh,
+                   String namsinh, String cccd, String username, String password, String quyen) {
         this.Hovaten = hovaten;
-        this.SDT = SDT;
+        this.SDT = sdt;
         this.Diachi = diachi;
         this.Gioitinh = gioitinh;
         this.Namsinh = namsinh;
-        this.CCCD = CCCD;
+        this.CCCD = cccd;
         this.Username = username;
         this.Password = password;
-        this.role = role;
+        this.role = quyen;
         this.SoKN = 0;
     }
 
@@ -48,8 +48,8 @@ public class Account {
         return ID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setID(int id) {
+        this.ID = id;
     }
 
     public String getHovaten() {
@@ -64,8 +64,8 @@ public class Account {
         return SDT;
     }
 
-    public void setSDT(String SDT) {
-        this.SDT = SDT;
+    public void setSDT(String sdt) {
+        this.SDT = sdt;
     }
 
     public String getDiachi() {
@@ -96,8 +96,8 @@ public class Account {
         return CCCD;
     }
 
-    public void setCCCD(String CCCD) {
-        this.CCCD = CCCD;
+    public void setCCCD(String cccd) {
+        this.CCCD = cccd;
     }
 
     public String getUsername() {

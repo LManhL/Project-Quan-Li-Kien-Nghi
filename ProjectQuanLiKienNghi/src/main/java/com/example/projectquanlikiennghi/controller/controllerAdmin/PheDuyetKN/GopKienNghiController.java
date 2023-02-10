@@ -84,7 +84,7 @@ public class GopKienNghiController implements Initializable {
         AdminHomeController.global_pane.setCenter(p);
     }
     public void Gop(ActionEvent e) throws SQLException, IOException {
-        if(check==true){
+        if(check){
             String maKienNghi=MaKienNghiText.getText().toString();
             JdbcDAO repo=new JdbcDAO();
             KienNghi KN=repo.getKienNghi(maKienNghi);

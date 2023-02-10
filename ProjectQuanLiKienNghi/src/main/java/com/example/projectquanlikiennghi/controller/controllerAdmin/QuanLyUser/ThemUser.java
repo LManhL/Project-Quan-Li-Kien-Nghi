@@ -48,7 +48,7 @@ public class ThemUser implements Initializable {
     private Button button_back;
     @FXML
     private ImageView back_buttonimg;
-    JdbcDAO repo = new JdbcDAO();
+    private JdbcDAO repo = new JdbcDAO();
     @Override
     public void initialize(URL url, ResourceBundle rb) {}
 

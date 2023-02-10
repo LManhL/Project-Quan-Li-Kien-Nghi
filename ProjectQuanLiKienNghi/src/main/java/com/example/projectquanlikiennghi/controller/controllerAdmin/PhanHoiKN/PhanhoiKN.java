@@ -21,9 +21,9 @@ public class PhanhoiKN implements Initializable {
     @FXML
     private ScrollPane scrollPane;
 
-    JdbcDAO repo = new JdbcDAO();
+    private JdbcDAO repo = new JdbcDAO();
 
-    ObservableList<KienNghi> listPH = FXCollections.observableArrayList();
+    private ObservableList<KienNghi> listPH = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

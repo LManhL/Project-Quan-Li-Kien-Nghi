@@ -24,7 +24,7 @@ public class UserHomeController implements Initializable {
     @FXML
     private Button buttonLogout;
     @FXML
-    public  BorderPane Bpane_phu  ;
+    private  BorderPane Bpane_phu  ;
 
     public  static  BorderPane global_phu ;
     public static String username;
@@ -38,10 +38,10 @@ public class UserHomeController implements Initializable {
     }
 
     // set ten va matkhau cho lop , tu do cos the query
-    public void setInitialValue(String username,String password){
-        this.username=username;
-        this.password=password;
-        System.out.println(username+password);
+    public void setInitialValue(String uname,String pass){
+        this.username=uname;
+        this.password=pass;
+        System.out.println(uname+pass);
     }
     public void change_Bphu(String str) throws IOException {
         Parent p = new FXMLLoader().load(Main.class.getResource(str));

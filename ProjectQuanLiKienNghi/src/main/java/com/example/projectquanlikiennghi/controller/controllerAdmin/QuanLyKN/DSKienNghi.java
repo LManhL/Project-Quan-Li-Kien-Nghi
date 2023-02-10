@@ -3,7 +3,6 @@ package com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN;
 import com.example.projectquanlikiennghi.JdbcDAO;
 import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.controller.controllerAdmin.AdminHomeController;
-import com.example.projectquanlikiennghi.controller.controllerUser.UserHomeController;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,7 +23,6 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -51,11 +49,11 @@ public class DSKienNghi  implements Initializable {
     @FXML
     private TableColumn<KienNghi, String> Loai = new TableColumn<>();
     @FXML
-    private TextField filterField;
+    private TextField filterField = new TextField();
 
-    JdbcDAO repo = new JdbcDAO();
+    private JdbcDAO repo = new JdbcDAO();
 
-    ObservableList<KienNghi> listKN = FXCollections.observableArrayList();
+    private ObservableList<KienNghi> listKN = FXCollections.observableArrayList();
 
 
     private ContextMenu contextMenu;
@@ -205,7 +203,7 @@ public class DSKienNghi  implements Initializable {
                 try {
                     boolean check=false;
                     if(kn.getTrangthai()==2) check=true;
-                    if(check==true){
+                    if(check){
                         FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/QuanLyKN/PhanHoiKienNghi.fxml"));
                         Parent p = loader.load();
                         PhanHoiKienNghiController controller = loader.getController();

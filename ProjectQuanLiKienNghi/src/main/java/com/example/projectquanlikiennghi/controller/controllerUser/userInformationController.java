@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
@@ -18,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class userInformationController implements Initializable {
 
-    public JdbcDAO repo=new JdbcDAO();
+    private JdbcDAO repo=new JdbcDAO();
     @FXML
     private Label dia_chi_label;
 

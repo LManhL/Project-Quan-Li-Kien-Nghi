@@ -23,7 +23,7 @@ public class HomePage {
     private int KNchuaPD;
     private int KNdaPD ;
 
-    JdbcDAO repo = new JdbcDAO();
+    private JdbcDAO repo = new JdbcDAO();
 
 //    public HomePage(BorderPane borderPane) {
 //

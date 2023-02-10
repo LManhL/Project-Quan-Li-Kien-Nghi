@@ -5,16 +5,11 @@ import com.example.projectquanlikiennghi.Main;
 import com.example.projectquanlikiennghi.models.KienNghi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -27,9 +22,9 @@ public class PheduyetKN implements Initializable {
     @FXML
     private ScrollPane scrollPane;
 
-    JdbcDAO repo = new JdbcDAO();
+    private JdbcDAO repo = new JdbcDAO();
 
-    ObservableList<KienNghi> listKN = FXCollections.observableArrayList();
+    private ObservableList<KienNghi> listKN = FXCollections.observableArrayList();
 
     public PheduyetKN (){
     }

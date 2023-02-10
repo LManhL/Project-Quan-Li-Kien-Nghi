@@ -65,7 +65,6 @@ public class XemKienNghiUserController implements Initializable {
         else if(s8.equals("3")){
             s8="Đã phản hồi";
         }
-        else;
         tt_label.setText(s8);
     }
     @Override

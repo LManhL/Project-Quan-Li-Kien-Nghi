@@ -27,11 +27,11 @@ public class PhanHoi {
     @FXML
     private Button buttonSend;
     @FXML
-    Label status;
+    private Label status;
 
-    JdbcDAO repo = new JdbcDAO();
+    private JdbcDAO repo = new JdbcDAO();
 
-    KienNghi kienNghi;
+    private KienNghi kienNghi;
 
     public void loadPhanHoi(KienNghi KN){
         MaKN.setText(KN.getMa_kien_nghi());
