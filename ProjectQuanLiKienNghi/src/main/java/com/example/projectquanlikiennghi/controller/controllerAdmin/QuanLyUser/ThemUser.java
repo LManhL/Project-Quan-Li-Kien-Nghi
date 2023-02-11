@@ -65,31 +65,40 @@ public class ThemUser implements Initializable {
             String hoten = Hovaten.getText();
             String sdt = SDT.getText();
             String diachi = Diachi.getText();
-            String gioitinh;
+            String gioitinh = null;
             if (Men.isSelected()) {
                 gioitinh = "Nam";
-            } else gioitinh = "Nữ";
+            } else if(Women.isSelected()){
+                gioitinh = "Nữ";
+            }
             String namsinh = Namsinh.getText();
             String cccd = CCCD.getText();
             String usn = username.getText();
             String pass = password.getText();
 
-            try {
-                Integer d = Integer.parseInt(namsinh);
-            } catch (NumberFormatException nfe) {
+            if(hoten == ""|| sdt == "" || diachi == "" ||
+               gioitinh == null || cccd == "" || usn == "" || pass == ""){
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Lỗi");
-                alert.setContentText("Năm sinh không đúng định dạng");
+                alert.setContentText("Chưa nhập đầy đủ thông tin");
                 alert.show();
-            }
 
-            Account acc = new Account(hoten, sdt, diachi, gioitinh, namsinh,
-                    cccd, usn, pass, "user");
-            repo.InsertUser(acc);
-            status.setVisible(true);
-            buttonSummit.setVisible(false);
-        }else {
-            // nothing
+            } else {
+                try {
+                    Integer d = Integer.parseInt(namsinh);
+                } catch (NumberFormatException nfe) {
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Lỗi");
+                    alert.setContentText("Năm sinh không đúng định dạng");
+                    alert.show();
+                }
+
+                Account acc = new Account(hoten, sdt, diachi, gioitinh, namsinh,
+                        cccd, usn, pass, "user");
+                repo.InsertUser(acc);
+                status.setVisible(true);
+                buttonSummit.setVisible(false);
+            }
         }
     }
     public void back() throws IOException {
