@@ -263,12 +263,20 @@ public class ThietLapThongTinController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
 
         if (result.get() == buttonTypeYes){
-            repo.updateStatus(kienNghi,2);
-            repo.themKN_Coquan(kienNghi.getMa_kien_nghi(), maCQ);
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/PheDuyetKN/PheDuyetKN.fxml"));
-            Parent p = loader.load();
+            if (maCQ != null){
+                repo.updateStatus(kienNghi,2);
+                repo.themKN_Coquan(kienNghi.getMa_kien_nghi(), maCQ);
+                FXMLLoader loader = new FXMLLoader(Main.class.getResource("AdminFXML/PheDuyetKN/PheDuyetKN.fxml"));
+                Parent p = loader.load();
 
-            AdminHomeController.global_pane.setCenter(p);
+                AdminHomeController.global_pane.setCenter(p);
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Lỗi");
+                alert.setContentText("Chưa nhập thông tin cơ quan phản hồi");
+                alert.show();
+            }
+
         }
         else if(result.get()==buttonTypeNo){
             //do nothing
