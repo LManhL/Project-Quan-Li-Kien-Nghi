@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="686.0" prefWidth="1091.0" style="-fx-background-color: #ccd6e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerUser.DSKiennghiUserController">
+<Pane prefHeight="686.0" prefWidth="1091.0" style="-fx-background-color: #ccd6e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerUser.QuanLyKienNghiUser.DSKiennghiUserController">
     <children>
         <TableView fx:id="bang" layoutX="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="1051.0">
             <columns>

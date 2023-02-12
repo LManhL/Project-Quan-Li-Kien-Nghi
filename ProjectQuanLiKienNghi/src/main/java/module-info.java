@@ -24,12 +24,14 @@ module com.example.projectquanlikiennghi {
     opens com.example.projectquanlikiennghi.controller.controllerUser to javafx.fxml;
 
     opens com.example.projectquanlikiennghi.models to javafx.base;
-    exports com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN;
-    opens com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN to javafx.fxml;
-    exports com.example.projectquanlikiennghi.controller.controllerAdmin.PhanHoiKN;
-    opens com.example.projectquanlikiennghi.controller.controllerAdmin.PhanHoiKN to javafx.fxml;
+    exports com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKienNghi;
+    opens com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKienNghi to javafx.fxml;
     exports com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser;
     opens com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyUser to javafx.fxml;
-    exports com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN;
-    opens com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN to javafx.fxml;
+    exports com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKienNghi;
+    opens com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKienNghi to javafx.fxml;
+    exports com.example.projectquanlikiennghi.controller.controllerUser.QuanLyKienNghiUser;
+    opens com.example.projectquanlikiennghi.controller.controllerUser.QuanLyKienNghiUser to javafx.fxml;
+    exports com.example.projectquanlikiennghi.controller.controllerUser.ThongTinUser;
+    opens com.example.projectquanlikiennghi.controller.controllerUser.ThongTinUser to javafx.fxml;
 }

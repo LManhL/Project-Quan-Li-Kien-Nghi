@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="171.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN.PheDuyet">
+<AnchorPane prefHeight="171.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKienNghi.PheDuyetController">
    <children>
       <TextArea fx:id="MaKN" editable="false" layoutY="34.0" prefHeight="144.0" prefWidth="77.0" wrapText="true" />
       <Label alignment="CENTER" opacity="0.98" prefHeight="35.0" prefWidth="77.0" text="Mã KN" textAlignment="CENTER">

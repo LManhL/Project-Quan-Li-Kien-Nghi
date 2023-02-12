@@ -1,33 +1,16 @@
 package com.example.projectquanlikiennghi.models;
 
 public class CoQuanPhanHoi {
-    private int ID;
     private String MaCoQuan;
     private String TenCoQuan;
     private String DiaChi;
     private String Hotline;
-
-    public CoQuanPhanHoi(int ID, String maCoQuan, String tenCoQuan, String diaChi, String hotline) {
-        this.ID = ID;
-        MaCoQuan = maCoQuan;
-        TenCoQuan = tenCoQuan;
-        DiaChi = diaChi;
-        Hotline = hotline;
-    }
 
     public CoQuanPhanHoi(String maCoQuan, String tenCoQuan, String diaChi, String hotline) {
         MaCoQuan = maCoQuan;
         TenCoQuan = tenCoQuan;
         DiaChi = diaChi;
         Hotline = hotline;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 
     public String getMaCoQuan() {

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="742.0" prefWidth="1067.0" style="-fx-background-color: #ccd6e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerUser.userInformationController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="742.0" prefWidth="1067.0" style="-fx-background-color: #ccd6e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerUser.ThongTinUser.ThongTinUserController">
     <children>
         <GridPane alignment="BASELINE_LEFT" gridLinesVisible="true" hgap="1.0" layoutX="14.0" layoutY="17.0" prefHeight="574.0" prefWidth="1027.0" style="-fx-background-color: #b3d1f5;" vgap="1.0">
             <columnConstraints>

@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="699.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKN.PhanHoiKienNghiController">
+<AnchorPane prefHeight="699.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.QuanLyKienNghi.PhanHoiKienNghiController">
    <children>
       <Label layoutX="367.0" layoutY="20.0" text="Phản hồi kiến nghị" textFill="#1149cd">
          <font>

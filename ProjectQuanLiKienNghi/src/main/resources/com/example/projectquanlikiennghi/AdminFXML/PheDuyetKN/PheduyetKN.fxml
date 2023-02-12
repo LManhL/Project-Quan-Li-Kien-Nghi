@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="761.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN.PheduyetKN">
+<AnchorPane prefHeight="761.0" prefWidth="963.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKienNghi.PheduyetKienNghiController">
    <children>
       <Label alignment="CENTER" layoutX="341.0" prefHeight="47.0" prefWidth="271.0" text="Phê duyệt kiến nghị" textFill="#1b2cc6">
          <font>

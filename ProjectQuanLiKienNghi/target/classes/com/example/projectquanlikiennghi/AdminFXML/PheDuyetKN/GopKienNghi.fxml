@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="718.0" prefWidth="977.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKN.GopKienNghiController">
+<AnchorPane prefHeight="718.0" prefWidth="977.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectquanlikiennghi.controller.controllerAdmin.PheDuyetKienNghi.GopKienNghiController">
    <children>
       <Label layoutX="319.0" layoutY="20.0" text="Gộp kiến nghị trùng nhau" textFill="#1f51e8">
          <font>

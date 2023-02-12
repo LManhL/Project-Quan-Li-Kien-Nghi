@@ -15,9 +15,9 @@ import java.util.Map;
 
 // load database
 public class JdbcDAO {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/quanlykiennghi";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/cnpm_vip";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "admin123";
+    private static final String DATABASE_PASSWORD = "ad9vl30860";
 
 
     private static final String LOAD_USER = "SELECT * FROM account";

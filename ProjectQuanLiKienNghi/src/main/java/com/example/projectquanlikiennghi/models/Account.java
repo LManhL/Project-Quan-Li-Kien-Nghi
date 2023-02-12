@@ -1,7 +1,7 @@
 package com.example.projectquanlikiennghi.models;
 
 public class Account {
-    private int ID;
+    private int STT;
     private String Hovaten;
     private String SDT;
     private String Diachi;
@@ -11,11 +11,11 @@ public class Account {
     private String Username;
     private String Password;
     private String role;
-    private int SoKN;
+    private int KN_num;
 
-    public Account(int id, String hovaten, String sdt, String diachi, String gioitinh,
+    public Account(int stt, String hovaten, String sdt, String diachi, String gioitinh,
                    String namsinh, String cccd, String username,int sokn) {
-        this.ID = id;
+        this.STT = stt;
         this.Hovaten = hovaten;
         this.SDT = sdt;
         this.Diachi = diachi;
@@ -23,7 +23,7 @@ public class Account {
         this.Namsinh = namsinh;
         this.CCCD = cccd;
         this.Username = username;
-        this.SoKN = sokn;
+        this.KN_num = sokn;
     }
     public Account(String hovaten, String sdt, String diachi, String gioitinh,
                    String namsinh, String cccd, String username, String password, String quyen) {
@@ -36,7 +36,7 @@ public class Account {
         this.Username = username;
         this.Password = password;
         this.role = quyen;
-        this.SoKN = 0;
+        this.KN_num = 0;
     }
 
     public Account() {
@@ -44,12 +44,12 @@ public class Account {
     }
 
 
-    public int getID() {
-        return ID;
+    public int getSTT() {
+        return STT;
     }
 
-    public void setID(int id) {
-        this.ID = id;
+    public void setSTT(int id) {
+        this.STT = id;
     }
 
     public String getHovaten() {
@@ -116,11 +116,11 @@ public class Account {
         Password = password;
     }
 
-    public int getSoKN() {
-        return SoKN;
+    public int getKN_num() {
+        return KN_num;
     }
 
-    public void setSoKN(int soKN) {
-        SoKN = soKN;
+    public void setKN_num(int KN_num) {
+        this.KN_num = KN_num;
     }
 }
